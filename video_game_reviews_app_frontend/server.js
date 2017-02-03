@@ -8,7 +8,7 @@ var mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/call_of_rev
 
 mongoose.connect(mongoUri)
 
-port = process.env.PORT || 3000;
+port = process.env.PORT || 3001;
 app.use(express.static('public'));
 
 
