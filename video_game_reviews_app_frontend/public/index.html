@@ -18,6 +18,12 @@
   <h4 ng-click="ctrl.getUsers()">Get Users Test</h4>
   <div> {{ ctrl.error }} </div>
   <a href="#" ng-click="ctrl.showGames(user.id)">Show Games Test</a>
+  <a href="#" ng-click="ctrl.createGames(user.id)">Create Games Test</a>
+  <form ng-submit="ctrl.createGames(user.id)">
+  <input type="text" ng-model="userPass.username" placeholder="username"/>
+  <input type="password" ng-model="userPass.password" placeholder="password"/>
+  <input type="submit"/>
+</form>
 
 
 

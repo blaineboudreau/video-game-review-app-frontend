@@ -33,14 +33,14 @@ app.controller('mainController', ['$http', function($http) {
     console.log(response);
   }.bind(this));// end login request
 
-}// end login function
+  }// end login function
 
 //--------------------logout functionality------------------------------------
 
-this.logout = function() {
-  localStorage.clear('token');
-  location.reload();
-}// end logout function
+  this.logout = function() {
+    localStorage.clear('token');
+    location.reload();
+  }// end logout function
 
 //--------------------GET users------------------------------------------------
 
@@ -69,24 +69,30 @@ this.getUsers = function() {
     $http({
       url: this.url + '/users/' + self.user.id + '/games',
       method: 'GET',
-      headers: {
-        Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
-      }
     }).then(function(response) {
       console.log(response);
       console.log(self.user);
       self.games = response.data;
       console.log(response);
-    });
-  }// end showGames function
-
-}])// end controller
+    })
+  };// end showGames functio
 
 //------------------------create game-----------------------------------------
 
   this.createGame = function(userId) {
+    var self = this;
+    $http({
+      url: this.url + '/users/' + self.user.id + '/games',
+      method: 'POST'
+    }).then(function(response) {
+      console.log(response);
+      self.new_game = response.data;
+    })
+  };// end createGame function
 
-  }
+
+
+}]);// end controller
 
 
 
