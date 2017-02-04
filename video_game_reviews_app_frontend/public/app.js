@@ -6,6 +6,14 @@ app.controller('mainController', ['$http', function($http) {
   this.userPass = {};
   this.users = {};
   this.user = {};
+  this.games = {};
+
+//-------------------------toggle functionality btw local/heroku---------------
+
+  // var localEnv = true; //change to true if using localhost, change to false if on heroku
+  // if (localEnv) { var url = 'http://localhost:3000'} else { var url = 'https://call-of-review-frontend.herokuapp.com/' }
+
+//----------------------login functionality------------------------------------
 
   this.login = function(userPass) {
     console.log(userPass);
@@ -23,9 +31,18 @@ app.controller('mainController', ['$http', function($http) {
     localStorage.setItem('token', JSON.stringify(response.data.token))
 
     console.log(response);
-  }.bind(this));
+  }.bind(this));// end login request
 
-}// end login
+}// end login function
+
+//--------------------logout functionality------------------------------------
+
+this.logout = function() {
+  localStorage.clear('token');
+  location.reload();
+}// end logout function
+
+//--------------------GET users------------------------------------------------
 
 this.getUsers = function() {
   console.log('get users function');
@@ -45,18 +62,31 @@ this.getUsers = function() {
   }.bind(this));
 } //end getUsers function
 
+//-------------------------------show games by user index------------------------------
 
-  this.logout = function() {
-    localStorage.clear('token');
-    location.reload();
-  }// end logout function
+  this.showGames = function(userId) {
+    var self = this;
+    $http({
+      url: this.url + '/users/' + self.user.id + '/games',
+      method: 'GET',
+      headers: {
+        Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+      }
+    }).then(function(response) {
+      console.log(response);
+      console.log(self.user);
+      self.games = response.data;
+      console.log(response);
+    });
+  }// end showGames function
 
 }])// end controller
 
-//clean up code on lines below and place in controller
+//------------------------create game-----------------------------------------
 
-// var localEnv = true; //change to true if using localhost, change to false if on heroku
-// if (localEnv) { var urlString = 'http://localhost:3000'} else { var urlString = 'https://secure-crag-65287.herokuapp.com' }
+  this.createGame = function(userId) {
+
+  }
 
 
 

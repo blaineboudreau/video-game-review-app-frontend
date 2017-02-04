@@ -9,21 +9,20 @@
   </head>
   <body ng-controller="mainController as ctrl">
 
-    <!-- {{ ctrl.user.username }} -->
-
     <form ng-submit="ctrl.login(userPass)">
     <input type="text" ng-model="userPass.username" placeholder="username"/>
     <input type="password" ng-model="userPass.password" placeholder="password"/>
     <input type="submit"/>
   </form>
-
-  <h4 ng-click="ctrl.getUsers()">Click to see behind scenes info</h4>
-
   <a href="#" ng-click="ctrl.logout()">Log Out</a>
-
+  <h4 ng-click="ctrl.getUsers()">Get Users Test</h4>
   <div> {{ ctrl.error }} </div>
+  <a href="#" ng-click="ctrl.showGames(user.id)">Show Games Test</a>
 
-  <div ng-repear="user in ctrl.users">
+
+
+
+  <div ng-repeat="user in ctrl.users">
     {{ user.username }}
   </div>
 
