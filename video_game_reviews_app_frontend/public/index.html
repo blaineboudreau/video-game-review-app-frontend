@@ -25,21 +25,21 @@
     <li>
       <a href="#" ng-click="ctrl.showGames(user.id)">Show Games Test</a>
     </li>
-    <li>
-      <a href="#" ng-click="ctrl.createGames(user.id)">Create Games Test</a>
-    </li>
+    <!-- <li>
+      <a href="#" ng-click="ctrl.createGames()">Create Games Test</a>
+    </li> -->
   </ul>
-    <form ng-submit="ctrl.createGames(user.id)">
-      <input type="text" ng-model="createGames.name" placeholder="name"/>
-      <input type="text" ng-model="createGames.platforms" placeholder="platforms"/>
-      <input type="text" ng-model="createGames.image" placeholder="image"/>
-      <input type="text" ng-model="createGames.description" placeholder="description"/>
-      <input type="text" ng-model="createGames.genre" placeholder="genre"/>
-      <input type="text" ng-model="createGames.rating" placeholder="rating"/>
-      <input type="text" ng-model="createGames.developers" placeholder="developers"/>
-      <input type="text" ng-model="createGames.publisher" placeholder="publisher"/><input type="text" ng-model="createGames.review" placeholder="review"/>
-      <input type="text" ng-model="createGames.videos" placeholder="videos"/>
-      <input type="text" ng-model="createGames.release_date" placeholder="release_date"/>
+    <form ng-submit="ctrl.createGames()">
+      <input type="text" ng-model="formdata.name" placeholder="name"/>
+      <input type="text" ng-model="formdata.platforms" placeholder="platforms"/>
+      <input type="text" ng-model="formdata.image" placeholder="image"/>
+      <input type="text" ng-model="formdata.description" placeholder="description"/>
+      <input type="text" ng-model="formdata.genre" placeholder="genre"/>
+      <input type="text" ng-model="formdata.rating" placeholder="rating"/>
+      <input type="text" ng-model="formdata.developers" placeholder="developers"/>
+      <input type="text" ng-model="formdata.publisher" placeholder="publisher"/><input type="text" ng-model="formdata.review" placeholder="review"/>
+      <input type="text" ng-model="formdata.videos" placeholder="videos"/>
+      <input type="text" ng-model="formdata.release_date" placeholder="release_date"/>
       <input type="submit"/>
     </form>
 
@@ -47,7 +47,7 @@
       <div> {{ ctrl.error }} </div> -->
 
 
-  <div ng-repeat="games in ctrl.new_game">
+  <div ng-repeat="games in ctrl.new_game()">
     {{ new_game.name }}
   </div>
 
