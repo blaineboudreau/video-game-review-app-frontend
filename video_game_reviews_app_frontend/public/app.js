@@ -93,8 +93,11 @@ this.getUsers = function() {
       console.log(this.formdata);
       console.log('data from server:', result);
       this.formdata = {};
-    });
+    }.bind(this));
   }// end createGames function
+
+//-------------edit game-----------------------
+
 
 
 
