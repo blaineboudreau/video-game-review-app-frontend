@@ -30,8 +30,16 @@
     </li>
   </ul>
     <form ng-submit="ctrl.createGames(user.id)">
-      <input type="text" ng-model="createGames.username" placeholder="username"/>
-      <input type="text" ng-model="userPass.password" placeholder="password"/>
+      <input type="text" ng-model="createGames.name" placeholder="name"/>
+      <input type="text" ng-model="createGames.platforms" placeholder="platforms"/>
+      <input type="text" ng-model="createGames.image" placeholder="image"/>
+      <input type="text" ng-model="createGames.description" placeholder="description"/>
+      <input type="text" ng-model="createGames.genre" placeholder="genre"/>
+      <input type="text" ng-model="createGames.rating" placeholder="rating"/>
+      <input type="text" ng-model="createGames.developers" placeholder="developers"/>
+      <input type="text" ng-model="createGames.publisher" placeholder="publisher"/><input type="text" ng-model="createGames.review" placeholder="review"/>
+      <input type="text" ng-model="createGames.videos" placeholder="videos"/>
+      <input type="text" ng-model="createGames.release_date" placeholder="release_date"/>
       <input type="submit"/>
     </form>
 
@@ -39,7 +47,9 @@
       <div> {{ ctrl.error }} </div> -->
 
 
-
+  <div ng-repeat="games in ctrl.new_game">
+    {{ new_game.name }}
+  </div>
 
 
   <div ng-repeat="user in ctrl.users">
