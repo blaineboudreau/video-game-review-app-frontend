@@ -25,21 +25,18 @@
     <li>
       <a href="#" ng-click="ctrl.showGames(user.id)">Show Games Test</a>
     </li>
-    <!-- <li>
-      <a href="#" ng-click="ctrl.createGames()">Create Games Test</a>
-    </li> -->
   </ul>
     <form ng-submit="ctrl.createGames()">
-      <input type="text" ng-model="formdata.name" placeholder="name"/>
-      <input type="text" ng-model="formdata.platforms" placeholder="platforms"/>
-      <input type="text" ng-model="formdata.image" placeholder="image"/>
-      <input type="text" ng-model="formdata.description" placeholder="description"/>
-      <input type="text" ng-model="formdata.genre" placeholder="genre"/>
-      <input type="text" ng-model="formdata.rating" placeholder="rating"/>
-      <input type="text" ng-model="formdata.developers" placeholder="developers"/>
-      <input type="text" ng-model="formdata.publisher" placeholder="publisher"/><input type="text" ng-model="formdata.review" placeholder="review"/>
-      <input type="text" ng-model="formdata.videos" placeholder="videos"/>
-      <input type="text" ng-model="formdata.release_date" placeholder="release_date"/>
+      <input type="text" ng-model="ctrl.formdata.name" placeholder="name"/>
+      <input type="text" ng-model="ctrl.formdata.platforms" placeholder="platforms"/>
+      <input type="text" ng-model="ctrl.formdata.image" placeholder="image"/>
+      <input type="text" ng-model="ctrl.formdata.description" placeholder="description"/>
+      <input type="text" ng-model="ctrl.formdata.genre" placeholder="genre"/>
+      <input type="text" ng-model="ctrl.formdata.rating" placeholder="rating"/>
+      <input type="text" ng-model="ctrl.formdata.developers" placeholder="developers"/>
+      <input type="text" ng-model="ctrl.formdata.publisher" placeholder="publisher"/><input type="text" ng-model="ctrl.formdata.review" placeholder="review"/>
+      <input type="text" ng-model="ctrl.formdata.videos" placeholder="videos"/>
+      <input type="text" ng-model="ctrl.formdata.release_date" placeholder="release_date"/>
       <input type="submit"/>
     </form>
 
@@ -47,9 +44,9 @@
       <div> {{ ctrl.error }} </div> -->
 
 
-  <div ng-repeat="games in ctrl.new_game()">
-    {{ new_game.name }}
-  </div>
+  <!-- <div ng-repeat="games in ctrl.games()">
+    {{ games.name }}
+  </div> -->
 
 
   <div ng-repeat="user in ctrl.users">

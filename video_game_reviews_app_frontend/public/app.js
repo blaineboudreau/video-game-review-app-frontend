@@ -76,51 +76,27 @@ this.getUsers = function() {
       self.games = response.data;
       console.log(response);
     })
-  };// end showGames functio
+  };// end showGames function
 
 //------------------------create game-----------------------------------------
 
   this.createGames = function() {
-    var self = this;
+    // var self = this;
     console.log('createGames function..');
-    console.log('Formdata:', self.formdata);
+    console.log('Formdata:', this.formdata);
 
     $http({
       method: 'POST',
-      url: this.url + '/users/' + self.user.id + '/games/',
-      data: self.formdata,
+      url: this.url + '/users/' + this.user.id + '/games/',
+      data: this.formdata,
     }).then(function(result) {
-      console.log(self.formdata);
+      console.log(this.formdata);
       console.log('data from server:', result);
-      self.formdata = {};
-      self.games.unshift(result.data);
+      this.formdata = {};
     });
   }// end createGames function
 
-  // this.createGame = function(userId) {
-  //   var self = this;
-  //   $http({
-  //     url: this.url + '/users/' + self.user.id + '/games',
-  //     method: 'POST',
-  //     data: { game: {
-  //       name: new_game.name,
-  //       platforms: new_game.platforms,
-  //       image: new_game.image,
-  //       description: new_game.description,
-  //       genre: new_game.genre,
-  //       rating: new_game.rating,
-  //       developers: new_game.developers,
-  //       publisher: new_game.publisher,
-  //       review: new_game.review,
-  //       videos: new_game.videos,
-  //       release_date: new_game.release_date,
-  //       user_id: new_game.user_id
-  //     }}
-  //   }).then(function(response) {
-  //     console.log(response);
-  //     self.new_game = response.data;
-  //   })
-  // };// end createGame function
+
 
 
 
