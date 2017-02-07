@@ -96,7 +96,33 @@ this.getUsers = function() {
     }.bind(this));
   }// end createGames function
 
-//-------------edit game-----------------------
+//------------------------------delete game----------------------
+
+
+  this.deleteGames = function(games) {
+    for (i = 0; i < this.games.length; i++) {
+      if( this.games[i].id === games.id) {
+      this.games.splice(i,1);
+    }
+  }
+}// end of deleteGames function
+
+
+  this.deleteGamesFromDB = function(games) {
+    console.log(games);
+
+    $http({
+      method: 'DELETE',
+      url: urlString + '/users/' + games.user_id + '/games/' + games.id,
+    }).then(function(response) {
+      console.log(response);
+      this.deleteGames(response.data);
+      console.log(this.deleteGames);
+    }.bind(this));
+  }// end deleteGamesFromDB function
+
+
+//------------------------edit game-----------------------------
 
 
 
