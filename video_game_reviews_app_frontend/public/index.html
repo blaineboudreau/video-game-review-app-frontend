@@ -25,6 +25,9 @@
     <li>
       <a href="#"  ng-click="ctrl.showGames(user.id)">Show Games Test</a>
     </li>
+    <li>
+      <a href="#"  ng-click="ctrl.showGame(user.id)">Show Game Test</a>
+    </li>
   </ul>
     <form ng-submit="ctrl.createGames()">
       <input type="text" ng-model="ctrl.formdata.name" placeholder="name"/>
@@ -41,8 +44,8 @@
     </form>
 
 
-  <div ng-repeat="game in ctrl.games">
-    {{ game.name }}
+  <div ng-repeat="games in ctrl.games">
+    {{ games.name }}
   </div>
 
   <div ng-repeat="user in ctrl.users">

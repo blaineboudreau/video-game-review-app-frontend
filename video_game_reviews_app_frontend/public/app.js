@@ -7,6 +7,7 @@ app.controller('mainController', ['$http', function($http) {
   this.users = {};
   this.user = {};
   this.games = {};
+  this.game = {};
   this.formdata = {};
 
 //-------------------------toggle functionality btw local/heroku---------------
@@ -77,6 +78,20 @@ this.getUsers = function() {
       console.log(response);
     })
   };// end showGames function
+
+// --------------------------show indivdual game--------------------------------
+
+  this.showGame = function(userId) {
+    var self = this;
+    $http({
+      url: this.url + '/users/' + self.user.id + '/games/' + self.game.id,
+      method: 'GET',
+    }).then(function(response) {
+      console.log(response);
+      self.game.id = response.data;
+      console.log(response);
+    })
+  };// end showGame function
 
 //------------------------create game-----------------------------------------
 
