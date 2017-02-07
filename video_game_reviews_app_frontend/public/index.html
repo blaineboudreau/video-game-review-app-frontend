@@ -19,10 +19,8 @@
     <li>
       <a href="#" ng-click="ctrl.logout()">Log Out</a>
     </li>
-    <li>
-      <a href='#' ng-click="ctrl.getUsers()">Get Users Test</a>
-    </li>
   </ul>
+    <h3>Add a Game</h3>
     <form ng-submit="ctrl.createGames()">
       <input type="text" ng-model="ctrl.formdata.name" placeholder="name"/>
       <input type="text" ng-model="ctrl.formdata.platforms" placeholder="platforms"/>
@@ -44,8 +42,7 @@
       <h3>{{ game.name }}</h3>
       <img src= "{{ game.image }}"></img>
       <button ng-click="ctrl.showGame(game.id)">Show Game Info Test</button>
-
-    </div>
+      <button ng-click="ctrl.deleteGamesFromDB(game.id)">Delete Game Test</button>
   </div>
 
   <div ng-repeat="user in ctrl.users">
@@ -54,6 +51,16 @@
 
   </body>
 </html>
+
+
+
+
+
+<!-- -graveyard ---------------------------------------->
+
+<!-- <li>
+  <a href='#' ng-click="ctrl.getUsers()">Get Users Test</a>
+</li> -->
 
 <!-- <h4 ng-click="ctrl.getUsers()">Get Users Test</h4>
   <div> {{ ctrl.error }} </div> -->

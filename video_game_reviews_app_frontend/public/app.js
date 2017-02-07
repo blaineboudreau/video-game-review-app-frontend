@@ -113,27 +113,27 @@ this.getUsers = function() {
 //------------------------------delete game----------------------
 
 
-  // this.deleteGames = function(games) {
-  //   for (i = 0; i < this.games.length; i++) {
-  //     if( this.games[i].id === games.id) {
-  //     this.games.splice(i,1);
-  //   }
-  // }
-// }// end of deleteGames function
+  this.deleteGames = function(games) {
+    for (i = 0; i < this.games.length; i++) {
+      if( this.games[i].id === games.id) {
+      this.games.splice(i,1);
+    }
+  }
+}// end of deleteGames function
 
 
-  // this.deleteGamesFromDB = function(games) {
-  //   console.log(games);
-  //
-  //   $http({
-  //     method: 'DELETE',
-  //     url: urlString + '/users/' + games.user_id + '/games/' + games.id,
-  //   }).then(function(response) {
-  //     console.log(response);
-  //     this.deleteGames(response.data);
-  //     console.log(this.deleteGames);
-  //   }.bind(this));
-  // }// end deleteGamesFromDB function
+  this.deleteGamesFromDB = function(gameId) {
+    console.log(gameId);
+    var self = this;
+    $http({
+      method: 'DELETE',
+      url: this.url + '/users/' + self.user.id + '/games/' + gameId,
+    }).then(function(response) {
+      console.log(response);
+      self.deleteGames(response.data);
+      console.log(self.deleteGames);
+    })
+  };// end deleteGamesFromDB function
 
 
 //------------------------edit game-----------------------------
