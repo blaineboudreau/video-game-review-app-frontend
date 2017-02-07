@@ -81,15 +81,14 @@ this.getUsers = function() {
 
 // --------------------------show indivdual game--------------------------------
 
-  this.showGame = function(userId) {
+  this.showGame = function(gameId) {
     var self = this;
     $http({
-      url: this.url + '/users/' + self.user.id + '/games/' + self.game.id,
+      url: this.url + '/users/' + self.user.id + '/games/' + gameId,
       method: 'GET',
     }).then(function(response) {
-      console.log(response);
+      console.log("single game from server: ", response);
       self.game.id = response.data;
-      console.log(response);
     })
   };// end showGame function
 
@@ -114,27 +113,27 @@ this.getUsers = function() {
 //------------------------------delete game----------------------
 
 
-  this.deleteGames = function(games) {
-    for (i = 0; i < this.games.length; i++) {
-      if( this.games[i].id === games.id) {
-      this.games.splice(i,1);
-    }
-  }
-}// end of deleteGames function
+  // this.deleteGames = function(games) {
+  //   for (i = 0; i < this.games.length; i++) {
+  //     if( this.games[i].id === games.id) {
+  //     this.games.splice(i,1);
+  //   }
+  // }
+// }// end of deleteGames function
 
 
-  this.deleteGamesFromDB = function(games) {
-    console.log(games);
-
-    $http({
-      method: 'DELETE',
-      url: urlString + '/users/' + games.user_id + '/games/' + games.id,
-    }).then(function(response) {
-      console.log(response);
-      this.deleteGames(response.data);
-      console.log(this.deleteGames);
-    }.bind(this));
-  }// end deleteGamesFromDB function
+  // this.deleteGamesFromDB = function(games) {
+  //   console.log(games);
+  //
+  //   $http({
+  //     method: 'DELETE',
+  //     url: urlString + '/users/' + games.user_id + '/games/' + games.id,
+  //   }).then(function(response) {
+  //     console.log(response);
+  //     this.deleteGames(response.data);
+  //     console.log(this.deleteGames);
+  //   }.bind(this));
+  // }// end deleteGamesFromDB function
 
 
 //------------------------edit game-----------------------------

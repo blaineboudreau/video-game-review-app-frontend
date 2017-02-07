@@ -22,12 +22,6 @@
     <li>
       <a href='#' ng-click="ctrl.getUsers()">Get Users Test</a>
     </li>
-    <li>
-      <a href="#"  ng-click="ctrl.showGames(user.id)">Show Games Test</a>
-    </li>
-    <li>
-      <a href="#"  ng-click="ctrl.showGame(user.id)">Show Game Test</a>
-    </li>
   </ul>
     <form ng-submit="ctrl.createGames()">
       <input type="text" ng-model="ctrl.formdata.name" placeholder="name"/>
@@ -44,8 +38,14 @@
     </form>
 
 
-  <div ng-repeat="games in ctrl.games">
-    {{ games.name }}
+  <div>
+    <a href="#"  ng-click="ctrl.showGames(user.id)">Show Games Test</a>
+    <div ng-repeat="game in ctrl.games">
+      <h3>{{ game.name }}</h3>
+      <img src= "{{ game.image }}"></img>
+      <button ng-click="ctrl.showGame(game.id)">Show Game Info Test</button>
+
+    </div>
   </div>
 
   <div ng-repeat="user in ctrl.users">
