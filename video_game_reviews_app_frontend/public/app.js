@@ -138,7 +138,22 @@ this.getUsers = function() {
 
 //------------------------edit game-----------------------------
 
+  this.editGame = function(gameId) {
+    var self = this;
+    console.log('editGames function..');
+    console.log('Formdata:', self.editformdata);
+    console.log(gameId);
 
+    $http({
+      url: this.url + '/users/' + self.user.id + '/games/' + gameId,
+      method: 'PUT',
+      data: this.editformdata
+    }).then(function(result) {
+      console.log('data from server: ', result);
+      self.editformdata = {};
+      self.editGame.result.data;
+    })
+  };// end editGames function
 
 
 
