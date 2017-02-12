@@ -6,7 +6,7 @@ app.controller('mainController', ['$http', function($http) {
   this.userPass = {};
   this.users = {};
   this.user = {};
-  this.games = {};
+  this.games = [];
   this.game = {};
   this.formdata = {};
 
@@ -88,7 +88,7 @@ this.getUsers = function() {
       method: 'GET',
     }).then(function(response) {
       console.log("single game from server: ", response);
-      self.game.id = response.data;
+      self.game = response.data;
     })
   };// end showGame function
 
@@ -151,7 +151,7 @@ this.getUsers = function() {
     }).then(function(result) {
       console.log('data from server: ', result);
       self.editformdata = {};
-      self.editGame.result.data;
+      self.editGames.result.data;
     })
   };// end editGames function
 
