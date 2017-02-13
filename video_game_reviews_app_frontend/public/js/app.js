@@ -1,4 +1,4 @@
-var app = angular.module('call_of_review_app', []);
+var app = angular.module('call_of_review_app', ['ngRoute']);
 
 app.controller('mainController', ['$http', '$state', '$stateParams', function($http, $state, $stateParams) {
 
