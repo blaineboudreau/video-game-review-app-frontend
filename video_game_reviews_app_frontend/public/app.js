@@ -16,20 +16,6 @@ app.controller('mainController', ['$http', function($http) {
   // var localEnv = true; //change to true if using localhost, change to false if on heroku
   // if (localEnv) { var url = 'http://localhost:3000'} else { var url = 'https://call-of-review-frontend.herokuapp.com/' }
 
-//------------------------signup functionality-------------------------------------------------------------------------------
-
-  this.signup = function(userPass) {
-    $http({
-      method: 'POST',
-      url: this.url + '/users',
-      data: { user: {
-        username: userPass.username,
-        password: userPass.password
-      }}
-    }).then(function(response) {
-      console.log(response);
-    })
-  }// end signup function
 
 //----------------------login functionality------------------------------------------------------------------------------------
 
@@ -50,15 +36,30 @@ app.controller('mainController', ['$http', function($http) {
 
     console.log(response);
   }.bind(this));// end login request
+};// end login function
 
-  }// end login function
+  //------------------------signup functionality-------------------------------------------------------------------------------
+
+  this.signup = function(userPass) {
+
+  $http({
+    method: 'POST',
+    url: this.url + '/users',
+    data: { user: {
+      username: userPass.username,
+      password: userPass.password
+    }}
+  }).then(function(response) {
+    console.log(response);
+  }.bind(this));
+  };// end signup function
 
 //--------------------logout functionality---------------------------------------------------------------------------------------
 
   this.logout = function() {
     localStorage.clear('token');
     location.reload();
-  }// end logout function
+  };// end logout function
 
 //--------------------GET users---------------------------------------------------------------------------------------------------
 
