@@ -7,15 +7,16 @@ app.controller('mainController', ['$http', function($http) {
   this.users = {};
   this.user = {};
   this.games = [];
-  this.game = {};
+  this.game = [];
   this.formdata = {};
+  this.editformdata = {};
 
 //-------------------------toggle functionality btw local/heroku---------------
 
   // var localEnv = true; //change to true if using localhost, change to false if on heroku
   // if (localEnv) { var url = 'http://localhost:3000'} else { var url = 'https://call-of-review-frontend.herokuapp.com/' }
 
-//------------------------signup functionality--------------------------------------
+//------------------------signup functionality-------------------------------------------------------------------------------
 
   this.signup = function(userPass) {
     $http({
@@ -30,7 +31,7 @@ app.controller('mainController', ['$http', function($http) {
     })
   }// end signup function
 
-//----------------------login functionality------------------------------------
+//----------------------login functionality------------------------------------------------------------------------------------
 
   this.login = function(userPass) {
     console.log(userPass);
@@ -52,14 +53,14 @@ app.controller('mainController', ['$http', function($http) {
 
   }// end login function
 
-//--------------------logout functionality------------------------------------
+//--------------------logout functionality---------------------------------------------------------------------------------------
 
   this.logout = function() {
     localStorage.clear('token');
     location.reload();
   }// end logout function
 
-//--------------------GET users------------------------------------------------
+//--------------------GET users---------------------------------------------------------------------------------------------------
 
 this.getUsers = function() {
   console.log('get users function');
@@ -79,7 +80,7 @@ this.getUsers = function() {
   }.bind(this));
 } //end getUsers function
 
-//-------------------------------show games by user index------------------------------
+//-------------------------------show games by user index---------------------------------------------------------------------------------
 
   this.showGames = function(userId) {
     var self = this;
@@ -94,7 +95,7 @@ this.getUsers = function() {
     })
   };// end showGames function
 
-// --------------------------show indivdual game--------------------------------
+// --------------------------show indivdual game-----------------------------------------------------------------------------------
 
   this.showGame = function(gameId) {
     var self = this;
@@ -107,7 +108,7 @@ this.getUsers = function() {
     })
   };// end showGame function
 
-//------------------------create game-----------------------------------------
+//------------------------create game--------------------------------------------------------------------------------------------
 
   this.createGames = function() {
     // var self = this;
@@ -125,7 +126,7 @@ this.getUsers = function() {
     }.bind(this));
   }// end createGames function
 
-//------------------------------delete game----------------------
+//------------------------------delete game-------------------------------------------------------------------------
 
 
   this.deleteGames = function(games) {
@@ -151,7 +152,7 @@ this.getUsers = function() {
   };// end deleteGamesFromDB function
 
 
-//------------------------edit game-----------------------------
+//------------------------edit game--------------------------------------------------------------------------------
 
   this.editGame = function(gameId) {
     var self = this;
@@ -166,7 +167,7 @@ this.getUsers = function() {
     }).then(function(result) {
       console.log('data from server: ', result);
       self.editformdata = {};
-      self.editGames.result.data;
+      self.editGame.result.data;
     })
   };// end editGames function
 
@@ -174,10 +175,3 @@ this.getUsers = function() {
 
 
 }]);// end controller
-
-
-
-
-// sign up straight through login
-// users login route go to they're own page, users/1
-// when users login hide the login option ng-ifs and vise versa for logout
