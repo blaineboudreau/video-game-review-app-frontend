@@ -167,7 +167,7 @@ this.getUsers = function() {
     }).then(function(result) {
       console.log('data from server: ', result);
       self.editformdata = {};
-      self.editGame.result.data;
+      self.editGame.result;
     })
   };// end editGames function
 
