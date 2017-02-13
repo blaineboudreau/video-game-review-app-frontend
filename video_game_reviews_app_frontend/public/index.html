@@ -15,10 +15,22 @@
       <form ng-submit="ctrl.login(userPass)">
         <input type="text" ng-model="userPass.username" placeholder="username"/>
         <input type="password" ng-model="userPass.password" placeholder="password"/>
-        <input type="submit"/>
+        <button type="submit">login</button>
       </form>
-      <a href="#" ng-click="ctrl.logout()">Log Out</a>
+      <form ng-submit="ctrl.signup(userPass)">
+        <input type="text" ng-model="userPass.username" placeholder="username"/>
+        <input type="password" ng-model="userPass.password" placeholder="password"/>
+        <button type="submit">sign up</button>
+      </form>
+      <button ng-if="ctrl.user" ng-click="ctrl.logout()">Log Out</button>
+      <div class="heading">
+        <h1>CoR</h1>
+        <h3>Call of Review</h3>
+        <small>where all your gaming needs are met</small>
+      </div>
     </nav>
+
+
 
     <div class="container">
       <main>
@@ -70,14 +82,14 @@
       </main>
 
         <div class="game-container" ng-if='ctrl.game'>
-          <h3>{{ ctrl.game.name }}</h3>
+          <p ng-if="ctrl.game">{{ ctrl.game.name }}</p>
           <p ng-if="ctrl.game">Platforms: {{ ctrl.game.platforms }}</p>
           <p ng-if="ctrl.game">Genre: {{ ctrl.game.genre }}</p>
           <p ng-if="ctrl.game">Description: {{ ctrl.game.description }}</p>
           <p ng-if="ctrl.game">Rating: {{ ctrl.game.rating }}</p>
           <p ng-if="ctrl.game">Developers: {{ ctrl.game.developers }}</p>
           <p ng-if="ctrl.game">Publisher: {{ ctrl.game.publisher }}</p>
-          <p ng-if="ctrl.game">Release Date: {{ ctrl.game.release_date }}</p>
+          <!-- <p ng-if="ctrl.game">Release Date: {{ ctrl.game.release_date }}</p> -->
         </div>
 
       </div>
