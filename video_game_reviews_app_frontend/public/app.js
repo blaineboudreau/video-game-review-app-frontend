@@ -15,6 +15,21 @@ app.controller('mainController', ['$http', function($http) {
   // var localEnv = true; //change to true if using localhost, change to false if on heroku
   // if (localEnv) { var url = 'http://localhost:3000'} else { var url = 'https://call-of-review-frontend.herokuapp.com/' }
 
+//------------------------signup functionality--------------------------------------
+
+  this.signup = function(userPass) {
+    $http({
+      method: 'POST',
+      url: this.url + '/users',
+      data: { user: {
+        username: userPass.username,
+        password: userPass.password
+      }}
+    }).then(function(response) {
+      console.log(response);
+    })
+  }// end signup function
+
 //----------------------login functionality------------------------------------
 
   this.login = function(userPass) {

@@ -1,0 +1,48 @@
+header, div, main, nav, aside, footer {
+  border: 1px solid black;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: #303F9F;
+    font-family: Verdana, Geneva, sans-serif;
+}
+
+.container {
+  display: flex;
+  flex: 1;
+  /*background-color: #303F9F;*/
+}
+
+header {
+  text-align: center;
+  background-color: #757575;
+}
+
+main {
+  flex: 1;
+  text-align: center;
+}
+
+/*nav {
+  order: -1
+}*/
+
+aside {
+  flex: 0 0 12em;
+  background-color: #757575;
+}
+
+footer {
+  text-align: center;
+  background-color: #757575;
+}
+
+/*.weather {
+  margin: 5px;
+  padding: 5px 15px 5px 15px;
+  background-color: #E4E1DE;
+  border-radius: 5px;
+}*/
