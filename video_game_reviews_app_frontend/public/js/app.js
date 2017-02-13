@@ -1,6 +1,6 @@
 var app = angular.module('call_of_review_app', []);
 
-app.controller('mainController', ['$http', function($http) {
+app.controller('mainController', ['$http', '$state', '$stateParams', function($http, $state, $stateParams) {
 
   this.url = "http://localhost:3000"
   this.userPass = {};
@@ -10,6 +10,10 @@ app.controller('mainController', ['$http', function($http) {
   this.game = [];
   this.formdata = {};
   this.editformdata = {};
+
+  this.login = login;
+  this.signup = signup;
+  this.logout = logout;
 
 //-------------------------toggle functionality btw local/heroku---------------
 
@@ -34,6 +38,8 @@ app.controller('mainController', ['$http', function($http) {
     this.user = response.data.user
     localStorage.setItem('token', JSON.stringify(response.data.token))
 
+    $state.go('index', {url: '/', user: response.data.user})
+
     console.log(response);
   }.bind(this));// end login request
 };// end login function
@@ -51,6 +57,9 @@ app.controller('mainController', ['$http', function($http) {
     }}
   }).then(function(response) {
     console.log(response);
+
+    $state.go('login', {url: '/login'})
+
   }.bind(this));
   };// end signup function
 
@@ -58,7 +67,8 @@ app.controller('mainController', ['$http', function($http) {
 
   this.logout = function() {
     localStorage.clear('token');
-    location.reload();
+    // location.reload();
+    $state.go('index', {url: '/'}, { reload: true })
   };// end logout function
 
 //--------------------GET users---------------------------------------------------------------------------------------------------
