@@ -35,7 +35,11 @@
 
     <div class="container">
       <main>
-        <h3>Add a Game</h3>
+
+        <img src="/Users/blaineboudreau/Downloads/Callofreview.png"/>
+
+        <button ui-sref="createGames">new game</button>
+        <!-- <h3>Add a Game</h3>
         <div class="form">
           <form ng-submit="ctrl.createGames()">
             <input type="text" ng-model="ctrl.formdata.name" placeholder="name"/>
@@ -50,7 +54,7 @@
             <input type="text" ng-model="ctrl.formdata.release_date" placeholder="release_date"/>
             <input type="submit"/>
           </form>
-        </div>
+        </div> -->
 
         <div>
           <button ng-click="ctrl.showGames(user.id)">My Games</button>
@@ -83,7 +87,7 @@
       </main>
 
         <div class="game-container" ng-if='ctrl.game'>
-          <h3>{{ ctrl.game.name }}</h3>
+          <p ng-if="ctrl.game">{{ ctrl.game.name }}</p>
           <p ng-if="ctrl.game">Platforms: {{ ctrl.game.platforms }}</p>
           <p ng-if="ctrl.game">Genre: {{ ctrl.game.genre }}</p>
           <p ng-if="ctrl.game">Description: {{ ctrl.game.description }}</p>
