@@ -162,7 +162,7 @@ this.getUsers = function() {
     $http({
       url: this.url + '/users/' + self.user.id + '/games/' + gameId,
       method: 'PUT',
-      data: this.editformdata
+      data: self.editformdata
     }).then(function(result) {
       console.log('data from server: ', result);
       self.editformdata = {};
