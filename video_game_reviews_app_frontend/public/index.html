@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
     <title></title>
   </head>
@@ -77,26 +78,7 @@
           <p ng-if="ctrl.game">Developers: {{ ctrl.game.developers }}</p>
           <p ng-if="ctrl.game">Publisher: {{ ctrl.game.publisher }}</p>
           <p ng-if="ctrl.game">Release Date: {{ ctrl.game.release_date }}</p>
-
-          <!-- <div class="form" ng-if='ctrl.game'>
-            <h3>EDIT GAME INFO</h3>
-            <form ng-submit="ctrl.editGame(game.id)">
-              <input type="text" ng-model="ctrl.editformdata.name" placeholder="name"/>
-              <input type="text" ng-model="ctrl.editformdata.platforms" placeholder="platforms"/>
-              <input type="text" ng-model="ctrl.editformdata.image" placeholder="image"/>
-              <input type="text" ng-model="ctrl.editformdata.description" placeholder="description"/>
-              <input type="text" ng-model="ctrl.editformdata.genre" placeholder="genre"/>
-              <input type="text" ng-model="ctrl.editformdata.rating" placeholder="rating"/>
-              <input type="text" ng-model="ctrl.editformdata.developers" placeholder="developers"/>
-              <input type="text" ng-model="ctrl.editformdata.publisher" placeholder="publisher"/><input type="text" ng-model="ctrl.editformdata.review" placeholder="review"/>
-              <input type="text" ng-model="ctrl.editformdata.videos" placeholder="videos"/>
-              <input type="text" ng-model="ctrl.editformdata.release_date" placeholder="release_date"/>
-              <input type="submit"/>
-            </form>
-          </div> -->
-
         </div>
-
 
       </div>
 
