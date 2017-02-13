@@ -1,6 +1,6 @@
 var app = angular.module('call_of_review_app', []);
 
-app.controller('mainController', ['$http', function($http) {
+app.controller('mainController', ['$http', '$state', function($http, $state) {
 
   this.url = "http://localhost:3000"
   this.userPass = {};
@@ -10,25 +10,15 @@ app.controller('mainController', ['$http', function($http) {
   this.game = {};
   this.formdata = {};
 
+  // this.login = login;
+  // this.signup = signup;
+  // this.logout = logout;
+
 //-------------------------toggle functionality btw local/heroku---------------
 
   // var localEnv = true; //change to true if using localhost, change to false if on heroku
   // if (localEnv) { var url = 'http://localhost:3000'} else { var url = 'https://call-of-review-frontend.herokuapp.com/' }
 
-//------------------------signup functionality--------------------------------------
-
-  this.signup = function(userPass) {
-    $http({
-      method: 'POST',
-      url: this.url + '/users',
-      data: { user: {
-        username: userPass.username,
-        password: userPass.password
-      }}
-    }).then(function(response) {
-      console.log(response);
-    })
-  }// end signup function
 
 //----------------------login functionality------------------------------------
 
@@ -47,16 +37,38 @@ app.controller('mainController', ['$http', function($http) {
     this.user = response.data.user
     localStorage.setItem('token', JSON.stringify(response.data.token))
 
+    $state.go('index', {url: '/', user: response.data.user})
+
     console.log(response);
   }.bind(this));// end login request
 
   }// end login function
 
+//------------------------signup functionality--------------------------------------
+
+    this.signup = function(userPass) {
+
+      $http({
+        method: 'POST',
+        url: this.url + '/users',
+        data: { user: {
+          username: userPass.username,
+          password: userPass.password
+        }}
+      }).then(function(response) {
+        console.log(response);
+
+        $state.go('login', {url: '/login'})
+      })
+    }// end signup function
+
 //--------------------logout functionality------------------------------------
 
   this.logout = function() {
     localStorage.clear('token');
-    location.reload();
+    // location.reload();
+
+    $state.go('index', {url: '/'}, { reload: true })
   }// end logout function
 
 //--------------------GET users------------------------------------------------
