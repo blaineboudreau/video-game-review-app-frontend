@@ -17,39 +17,35 @@
         <input type="password" ng-model="userPass.password" placeholder="password"/>
         <button type="submit">login</button>
       </form>
-      <form ng-submit="ctrl.signup(userPass)">
+      <!-- <form ng-submit="ctrl.signup(userPass)">
         <input type="text" ng-model="userPass.username" placeholder="username"/>
         <input type="password" ng-model="userPass.password" placeholder="password"/>
         <button type="submit">sign up</button>
-      </form>
+      </form> -->
       <button ng-if="ctrl.user" ng-click="ctrl.logout()">Log Out</button>
-      <div class="heading">
-        <h1>CoR</h1>
-        <h3>Call of Review</h3>
-        <small>where all your gaming needs are met</small>
-      </div>
     </nav>
 
 
 
     <div class="container">
       <main>
-        <h3>Add a Game</h3>
-        <div class="form">
-          <form ng-submit="ctrl.createGames()">
+          <button type="button" onclick="show('new')">new game</button>
+          <form ng-submit="ctrl.createGames()" class="form">
+            <div id="new">
             <input type="text" ng-model="ctrl.formdata.name" placeholder="name"/>
             <input type="text" ng-model="ctrl.formdata.platforms" placeholder="platforms"/>
             <input type="text" ng-model="ctrl.formdata.image" placeholder="image"/>
-            <input type="text" ng-model="ctrl.formdata.description" placeholder="description"/>
+            <input type="hidden" ng-model="ctrl.formdata.description" placeholder="description"/>
             <input type="text" ng-model="ctrl.formdata.genre" placeholder="genre"/>
             <input type="text" ng-model="ctrl.formdata.rating" placeholder="rating"/>
             <input type="text" ng-model="ctrl.formdata.developers" placeholder="developers"/>
-            <input type="text" ng-model="ctrl.formdata.publisher" placeholder="publisher"/><input type="text" ng-model="ctrl.formdata.review" placeholder="review"/>
+            <input type="text" ng-model="ctrl.formdata.publisher" placeholder="publisher"/><input type="hidden" ng-model="ctrl.formdata.review" placeholder="review"/>
             <input type="text" ng-model="ctrl.formdata.videos" placeholder="videos"/>
             <input type="text" ng-model="ctrl.formdata.release_date" placeholder="release_date"/>
             <input type="submit"/>
+          </div>
           </form>
-        </div>
+
 
         <div>
           <button ng-click="ctrl.showGames(user.id)">My Games</button>
@@ -59,9 +55,7 @@
             <button ng-click="ctrl.showGame(game.id)">Game Info</button>
             <button ng-click="ctrl.deleteGamesFromDB(game.id)">Delete Game From Library</button>
             <!-- <button ng-click="ctrl.editGame(game.id)">Edit Game Info</button> -->
-            <div class="form" ng-if='ctrl.game'>
-              <h3>EDIT GAME INFO</h3>
-              <form ng-submit="ctrl.editGame(game.id)">
+              <form ng-submit="ctrl.editGame(game.id)" ng-if="ctrl.game" class="form">
                 <input type="text" ng-model="ctrl.editformdata.name" placeholder="name"/>
                 <input type="text" ng-model="ctrl.editformdata.platforms" placeholder="platforms"/>
                 <input type="text" ng-model="ctrl.editformdata.image" placeholder="image"/>
@@ -74,10 +68,7 @@
                 <input type="text" ng-model="ctrl.editformdata.release_date" placeholder="release_date"/>
                 <input type="submit"/>
               </form>
-            </div>
           </div>
-
-
 
       </main>
 

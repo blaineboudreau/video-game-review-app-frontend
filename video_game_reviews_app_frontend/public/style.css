@@ -6,15 +6,9 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  background-image: url("http://cdn.desktopwallpapers4.me/media/thumbs_400x250/2/15373.jpg");
-  /*background-color: #303F9F;*/
+  /*background-image: url("http://cdn.desktopwallpapers4.me/media/thumbs_400x250/2/15373.jpg");*/
+  background-color: #e0e0e0;
     font-family: Verdana, Geneva, sans-serif;
-}
-
-.container {
-  display: flex;
-  flex: 1;
-  /*background-color: #303F9F;*/
 }
 
 nav {
@@ -25,6 +19,10 @@ nav {
 
 main {
   flex: 1;
+  text-align: center;
+}
+
+footer {
   text-align: center;
 }
 
@@ -49,21 +47,23 @@ button {
 }
 
 form {
-  text-align: center;
-  margin-top: 40px;
+  height: 40px; width: 100px;
+  border: 1px solid grey;
+  border-radius: 10px;
+  flex: auto;
+}
+
+
+.container {
+  display: flex;
+  flex: 1;
 }
 
 .game-container {
   flex: 0 0 12em;
-  background-color: #757575;
+  background-color: #e0e0e0;;
 }
 
-.heading {
-  text-align: center;
-  color: #900;
-}
-
-/*footer {
-  text-align: center;
-  background-color: #757575;
+/*#new-game {
+  display: none;
 }*/

@@ -19,6 +19,8 @@ app.controller('mainController', ['$http', function($http) {
 //------------------------signup functionality-------------------------------------------------------------------------------
 
   this.signup = function(userPass) {
+    console.log("the userPass is:", userPass);
+
     $http({
       method: 'POST',
       url: this.url + '/users',
@@ -175,3 +177,14 @@ this.getUsers = function() {
 
 
 }]);// end controller
+
+//----------------------------javascript--------------------------------------
+
+window.onload=function() {
+
+  document.getElementById("new").style.display="none";
+}
+
+show = function() {
+    document.getElementById("new").style.display="block";
+}
