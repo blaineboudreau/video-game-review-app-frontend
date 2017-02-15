@@ -36,16 +36,22 @@
     </header>
     <div class="container">
       <main>
-        <div  id="index-games">
-          <button ng-click="ctrl.showGames(user.id)">Display My Games</button>
-          <div id="game-info" ng-repeat="game in ctrl.games">
-            <div id="image">
-              <img src= "{{ game.image }}">
-            </div>
-            <button class="index-buttons" ng-click="ctrl.showGame(game.id)">Game Info</button>
-            <button class="index-buttons" ng-click="ctrl.deleteGamesFromDB(game.id)">Delete Game</button>
-            <button class="index-buttons" type="button" onclick="showEdit('edit')" ng-if="ctrl.game">edit game</button>
-                <form ng-submit="ctrl.editGame(game.id)" class="form">
+        <div id="search-form">
+          <form ng-submit="">
+            <input type="text" placeholder="search game">
+            <button type="submit">Search Giantbomb</button>
+          </form>
+        </div>
+        <div id="index-games">
+          <button id="showgame-button" ng-click="ctrl.showGames(user.id)">Display My Games</button>
+            <div id="game-info" ng-repeat="game in ctrl.games">
+              <div id="image">
+                <img src= "{{ game.image }}">
+              </div>
+              <button class="index-buttons" ng-click="ctrl.showGame(game.id)">Game Info</button>
+              <button class="index-buttons" ng-click="ctrl.deleteGamesFromDB(game.id)">Delete Game</button>
+              <button class="index-buttons" type="button" onclick="showEdit('edit')" ng-if="ctrl.game">edit game</button>
+              <form ng-submit="ctrl.editGame(game.id)" class="form">
                 <div id="edit">
                   <input type="text" ng-model="ctrl.editformdata.name" placeholder="name"/>
                   <input type="text" ng-model="ctrl.editformdata.platforms" placeholder="platforms"/>
@@ -62,7 +68,7 @@
               </form>
           </div>
       </main>
-        <aside>
+      <aside>
         <div class="game-container" ng-if="ctrl.game.length != 0">
           <p>{{ ctrl.game.name }}</p>
           <p>Platforms: {{ ctrl.game.platforms }}</p>
@@ -88,11 +94,14 @@
             <input type="submit"/>
           </div>
         </form>
-        <aside>
-      </div>
+      <aside>
+     </div>
     </div>
   </body>
   <footer>
+    <div id="buster-sword">
+      <img src="http://pixeljoint.com/files/icons/full/buster_sword_sample_big.png">
+    </div>
    <p><cite>© 2017 Development by Blaine Boudreau</cite></p>
   </footer>
 </html>

@@ -59,6 +59,7 @@ aside {
 img {
   height:200px;
   width: 200px;
+  margin-right: 100%;
 }
 
 .form {
@@ -79,7 +80,7 @@ img {
 }
 
 .index-buttons {
-  -webkit-column-count: 3;
+  display: block;
 }
 
 .game-container {
@@ -89,6 +90,9 @@ img {
 
 #game-info {
   display: block;
+  margin-right: 100%;
+  width: 400px;
+  height: 400px;
 }
 
 #edit {
@@ -110,4 +114,20 @@ img {
   opacity: 0.5;
   left: 0;
   object-fit: contain;
+}
+
+#showgame-button {
+  display: block;
+}
+
+#search-form {
+  margin-right: 100%;
+  padding-top: 70px;
+}
+
+#buster-sword {
+  height: 30px;
+  width: 300px;
+  position: absolute;
+  /*right: 250px;*/
 }
