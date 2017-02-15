@@ -35,14 +35,13 @@
         <div>
           <button ng-click="ctrl.showGames(user.id)">My Games</button>
           <div id="game-info" ng-repeat="game in ctrl.games">
-            <h3>{{ game.name }}</h3>
             <div id="image">
               <img src= "{{ game.image }}"></img>
             </div>
             <button ng-click="ctrl.showGame(game.id)">Game Info</button>
             <button ng-click="ctrl.deleteGamesFromDB(game.id)">Delete Game From Library</button>
             <button type="button" onclick="showEdit('edit')" ng-if="ctrl.game">edit game</button>
-                <form ng-submit="ctrl.editGame(game.id)">
+                <form ng-submit="ctrl.editGame(game.id)" class="form">
                 <div id="edit">
                   <input type="text" ng-model="ctrl.editformdata.name" placeholder="name"/>
                   <input type="text" ng-model="ctrl.editformdata.platforms" placeholder="platforms"/>

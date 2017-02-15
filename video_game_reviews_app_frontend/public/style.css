@@ -59,6 +59,11 @@ aside {
   background-color: #e0e0e0;;
 }
 
+img {
+  height:200px;
+  width: 200px;
+}
+
 .container {
   display: flex;
   flex: 1;
@@ -71,11 +76,6 @@ aside {
 
 #game-info {
   display: flex;
-}
-
-#image {
-  height:200px;
-  width: 200px;
 }
 
 #edit {
