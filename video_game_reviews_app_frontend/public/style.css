@@ -15,6 +15,7 @@ nav {
   text-align: center;
   /*background-color: #757575;*/
     background-image: url("https://www.unseen64.net/wp-content/uploads/2015/02/Shadow-Realms-banner-cancelled-Bioware-Austin-PC-game-1024x419.jpg");
+    display: flex;
 }
 
 main {
@@ -31,7 +32,7 @@ button {
   height: 38px;
   padding: 0 30px;
   text-align: center;
-  color: #900;
+  color: rgb(255, 0, 0);
   font-size: 11px;
   font-weight: 600;
   line-height: 38px;
@@ -47,12 +48,16 @@ button {
 }
 
 form {
-  height: 40px; width: 100px;
+  height: 210px; width: 100px;
   border: 1px solid grey;
   border-radius: 10px;
   flex: auto;
 }
 
+aside {
+  flex: 0 0 12em;
+  background-color: #e0e0e0;;
+}
 
 .container {
   display: flex;
@@ -64,6 +69,12 @@ form {
   background-color: #e0e0e0;;
 }
 
-/*#new-game {
-  display: none;
-}*/
+#game-info {
+  display: flex;
+}
+
+#image {
+  height:200px;
+  width: 200px;
+  
+}

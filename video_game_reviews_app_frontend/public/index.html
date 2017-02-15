@@ -12,26 +12,93 @@
   <body ng-controller="mainController as ctrl">
 
     <nav>
-      <form ng-submit="ctrl.login(userPass)">
-        <input type="text" ng-model="userPass.username" placeholder="username"/>
-        <input type="password" ng-model="userPass.password" placeholder="password"/>
-        <button type="submit">login</button>
+      <form ng-submit="ctrl.login(userPass)" class="form">
+        <div id="log">
+          <input type="text" ng-model="userPass.username" placeholder="username"/>
+          <input type="password" ng-model="userPass.password" placeholder="password"/>
+          <button type="submit">submit</button>
+        </div>
       </form>
-      <!-- <form ng-submit="ctrl.signup(userPass)">
-        <input type="text" ng-model="userPass.username" placeholder="username"/>
-        <input type="password" ng-model="userPass.password" placeholder="password"/>
-        <button type="submit">sign up</button>
-      </form> -->
-      <button ng-if="ctrl.user" ng-click="ctrl.logout()">Log Out</button>
+      <form ng-submit="ctrl.signup(userPass)" class="form">
+        <div id="sin">
+          <input type="text" ng-model="userPass.username" placeholder="username"/>
+          <input type="password" ng-model="userPass.password" placeholder="password"/>
+          <button type="submit">submit</button>
+        </div>
+      </form>
+      <button type="button" onclick="showSin('sin')">sign up</button>
+      <button type="button" onclick="showLog('log')">log in</button>
+      <button ng-if="ctrl.user" ng-click="ctrl.logout()">log out</button>
+      <button type="button" onclick="show('new')">new game</button>
+      <button type="button" onclick="showEdit('edit')">edit game</button>
+
     </nav>
 
 
 
     <div class="container">
       <main>
-          <button type="button" onclick="show('new')">new game</button>
-          <form ng-submit="ctrl.createGames()" class="form">
+          <!-- <button type="button" onclick="show('new')">new game</button> -->
+          <!-- <form ng-submit="ctrl.createGames()" class="form">
             <div id="new">
+              <input type="text" ng-model="ctrl.formdata.name" placeholder="name"/>
+              <input type="text" ng-model="ctrl.formdata.platforms" placeholder="platforms"/>
+              <input type="text" ng-model="ctrl.formdata.image" placeholder="image"/>
+              <input type="hidden" ng-model="ctrl.formdata.description" placeholder="description"/>
+              <input type="text" ng-model="ctrl.formdata.genre" placeholder="genre"/>
+              <input type="text" ng-model="ctrl.formdata.rating" placeholder="rating"/>
+              <input type="text" ng-model="ctrl.formdata.developers" placeholder="developers"/>
+              <input type="text" ng-model="ctrl.formdata.publisher" placeholder="publisher"/><input type="hidden" ng-model="ctrl.formdata.review" placeholder="review"/>
+              <input type="text" ng-model="ctrl.formdata.videos" placeholder="videos"/>
+              <input type="text" ng-model="ctrl.formdata.release_date" placeholder="release_date"/>
+              <input type="submit"/>
+            </div>
+          </form> -->
+
+
+        <div>
+          <button ng-click="ctrl.showGames(user.id)">My Games</button>
+          <div id="game-info" ng-repeat="game in ctrl.games">
+            <h3>{{ game.name }}</h3>
+            <div id="image">
+              <img src= "{{ game.image }}"></img>
+            </div>
+            <button ng-click="ctrl.showGame(game.id)">Game Info</button>
+            <button ng-click="ctrl.deleteGamesFromDB(game.id)">Delete Game From Library</button>
+            <button type="button" onclick="showEdit('edit')" ng-if="ctrl.game">edit game</button>
+              <form ng-submit="ctrl.editGame(game.id)" class="form">
+                <div id="edit">
+                  <input type="text" ng-model="ctrl.editformdata.name" placeholder="name"/>
+                  <input type="text" ng-model="ctrl.editformdata.platforms" placeholder="platforms"/>
+                  <input type="text" ng-model="ctrl.editformdata.image" placeholder="image"/>
+                  <input type="text" ng-model="ctrl.editformdata.description" placeholder="description"/>
+                  <input type="text" ng-model="ctrl.editformdata.genre" placeholder="genre"/>
+                  <input type="text" ng-model="ctrl.editformdata.rating" placeholder="rating"/>
+                  <input type="text" ng-model="ctrl.editformdata.developers" placeholder="developers"/>
+                  <input type="text" ng-model="ctrl.editformdata.publisher" placeholder="publisher"/><input type="text" ng-model="ctrl.editformdata.review" placeholder="review"/>
+                  <input type="text" ng-model="ctrl.editformdata.videos" placeholder="videos"/>
+                  <input type="text" ng-model="ctrl.editformdata.release_date" placeholder="release_date"/>
+                  <input type="submit"/>
+                </div>
+              </form>
+          </div>
+
+      </main>
+
+        <aside>
+        <div class="game-container" ng-if='ctrl.game'>
+          <p ng-if="ctrl.game">{{ ctrl.game.name }}</p>
+          <p ng-if="ctrl.game">Platforms: {{ ctrl.game.platforms }}</p>
+          <p ng-if="ctrl.game">Genre: {{ ctrl.game.genre }}</p>
+          <p ng-if="ctrl.game">Description: {{ ctrl.game.description }}</p>
+          <p ng-if="ctrl.game">Rating: {{ ctrl.game.rating }}</p>
+          <p ng-if="ctrl.game">Developers: {{ ctrl.game.developers }}</p>
+          <p ng-if="ctrl.game">Publisher: {{ ctrl.game.publisher }}</p>
+          <!-- <p ng-if="ctrl.game">Release Date: {{ ctrl.game.release_date }}</p> -->
+        </div>
+        <!-- <button type="button" onclick="show('new')">new game</button> -->
+        <form ng-submit="ctrl.createGames()" class="form">
+          <div id="new">
             <input type="text" ng-model="ctrl.formdata.name" placeholder="name"/>
             <input type="text" ng-model="ctrl.formdata.platforms" placeholder="platforms"/>
             <input type="text" ng-model="ctrl.formdata.image" placeholder="image"/>
@@ -44,45 +111,8 @@
             <input type="text" ng-model="ctrl.formdata.release_date" placeholder="release_date"/>
             <input type="submit"/>
           </div>
-          </form>
-
-
-        <div>
-          <button ng-click="ctrl.showGames(user.id)">My Games</button>
-          <div ng-repeat="game in ctrl.games">
-            <h3>{{ game.name }}</h3>
-            <img src= "{{ game.image }}"></img>
-            <button ng-click="ctrl.showGame(game.id)">Game Info</button>
-            <button ng-click="ctrl.deleteGamesFromDB(game.id)">Delete Game From Library</button>
-            <!-- <button ng-click="ctrl.editGame(game.id)">Edit Game Info</button> -->
-              <form ng-submit="ctrl.editGame(game.id)" ng-if="ctrl.game" class="form">
-                <input type="text" ng-model="ctrl.editformdata.name" placeholder="name"/>
-                <input type="text" ng-model="ctrl.editformdata.platforms" placeholder="platforms"/>
-                <input type="text" ng-model="ctrl.editformdata.image" placeholder="image"/>
-                <input type="text" ng-model="ctrl.editformdata.description" placeholder="description"/>
-                <input type="text" ng-model="ctrl.editformdata.genre" placeholder="genre"/>
-                <input type="text" ng-model="ctrl.editformdata.rating" placeholder="rating"/>
-                <input type="text" ng-model="ctrl.editformdata.developers" placeholder="developers"/>
-                <input type="text" ng-model="ctrl.editformdata.publisher" placeholder="publisher"/><input type="text" ng-model="ctrl.editformdata.review" placeholder="review"/>
-                <input type="text" ng-model="ctrl.editformdata.videos" placeholder="videos"/>
-                <input type="text" ng-model="ctrl.editformdata.release_date" placeholder="release_date"/>
-                <input type="submit"/>
-              </form>
-          </div>
-
-      </main>
-
-        <div class="game-container" ng-if='ctrl.game'>
-          <p ng-if="ctrl.game">{{ ctrl.game.name }}</p>
-          <p ng-if="ctrl.game">Platforms: {{ ctrl.game.platforms }}</p>
-          <p ng-if="ctrl.game">Genre: {{ ctrl.game.genre }}</p>
-          <p ng-if="ctrl.game">Description: {{ ctrl.game.description }}</p>
-          <p ng-if="ctrl.game">Rating: {{ ctrl.game.rating }}</p>
-          <p ng-if="ctrl.game">Developers: {{ ctrl.game.developers }}</p>
-          <p ng-if="ctrl.game">Publisher: {{ ctrl.game.publisher }}</p>
-          <!-- <p ng-if="ctrl.game">Release Date: {{ ctrl.game.release_date }}</p> -->
-        </div>
-
+        </form>
+        <aside>
       </div>
 
     </div>
