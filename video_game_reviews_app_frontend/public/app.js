@@ -173,8 +173,15 @@ this.getUsers = function() {
     })
   };// end editGames function
 
+//-------------------query games through API--------------------
 
+  this.search = function(searchString, callback) {
 
+    $resource({
+      url: 'http://api.giantbomb.com/game/1/?api_key=52304d7c9dda9771814ff56149b186d55f0564ed&format=jsonp&json_callback=search',
+      method: 'GET'
+    }).then
+  }
 
 }]);// end controller
 
@@ -183,10 +190,8 @@ this.getUsers = function() {
 window.onload=function() {
 
   document.getElementById("new").style.display="none";
-  // document.getElementById("edit").style.display="none";
   document.getElementById("sin").style.display="none";
   document.getElementById("log").style.display="none";
-
 }
 
 show = function() {

@@ -66,7 +66,8 @@
             <button ng-click="ctrl.showGame(game.id)">Game Info</button>
             <button ng-click="ctrl.deleteGamesFromDB(game.id)">Delete Game From Library</button>
             <button type="button" onclick="showEdit('edit')" ng-if="ctrl.game">edit game</button>
-              <form ng-submit="ctrl.editGame(game.id)" class="form">
+              <!-- <div id="edit"> -->
+                <form ng-submit="ctrl.editGame(game.id)">
                 <div id="edit">
                   <input type="text" ng-model="ctrl.editformdata.name" placeholder="name"/>
                   <input type="text" ng-model="ctrl.editformdata.platforms" placeholder="platforms"/>
@@ -81,6 +82,7 @@
                   <input type="submit"/>
                 </div>
               </form>
+            <!-- </div> -->
           </div>
 
       </main>
@@ -106,7 +108,7 @@
             <input type="text" ng-model="ctrl.formdata.genre" placeholder="genre"/>
             <input type="text" ng-model="ctrl.formdata.rating" placeholder="rating"/>
             <input type="text" ng-model="ctrl.formdata.developers" placeholder="developers"/>
-            <input type="text" ng-model="ctrl.formdata.publisher" placeholder="publisher"/><input type="hidden" ng-model="ctrl.formdata.review" placeholder="review"/>
+            <input type="text" ng-model="ctrl.formdata.publisher" placeholder="publisher"/><input type="text" ng-model="ctrl.formdata.review" placeholder="review"/>
             <input type="text" ng-model="ctrl.formdata.videos" placeholder="videos"/>
             <input type="text" ng-model="ctrl.formdata.release_date" placeholder="release_date"/>
             <input type="submit"/>
