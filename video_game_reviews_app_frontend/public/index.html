@@ -12,7 +12,6 @@
   </head>
   <body ng-controller="mainController as ctrl">
     <nav>
-<<<<<<< HEAD
       <form ng-submit="ctrl.login(userPass)" class="form-login">
         <div id="log">
           <input type="text" ng-model="userPass.username" placeholder="username"/>
@@ -27,25 +26,10 @@
           <button type="submit">submit</button>
         </div>
       </form>
-      <button type="button" onclick="showSin('sin')">sign up</button>
-      <button type="button" onclick="showLog('log')">log in</button>
-      <button id="logout-button" ng-if="ctrl.user" ng-click="ctrl.logout()">log out</button>
-      <button type="button" onclick="show('new')">new game</button>
-=======
-      <form ng-submit="ctrl.login(userPass)">
-        <input type="text" ng-model="userPass.username" placeholder="username"/>
-        <input type="password" ng-model="userPass.password" placeholder="password"/>
-        <button type="submit">Login</button>
-      </form>
-      <div>
-      <form ng-submit="ctrl.signup(userPass)">
-        <input type="text" ng-model="userPass.username" placeholder="username"/>
-        <input type="password" ng-model="userPass.password" placeholder="password"/>
-        <button type="submit">Sign Up</button>
-      </form>
-    </div>
-      <button type="submit" ng-click="ctrl.logout()">Log Out</button>
->>>>>>> b70004e3fa338a11a9cee7958fc712397379a9fa
+        <button type="button" onclick="showSin('sin')">sign up</button>
+        <button type="button" onclick="showLog('log')">log in</button>
+        <button id="logout-button" ng-if="ctrl.user" ng-click="ctrl.logout()">log out</button>
+        <button type="button" onclick="show('new')">new game</button>
     </nav>
     <header>
       <img id="health-bar" src="http://orig05.deviantart.net/39d6/f/2014/186/b/9/sword_art_online_hp_bar_by_darkblackswords-d5nvlz9.png">
