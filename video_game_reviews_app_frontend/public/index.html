@@ -8,9 +8,7 @@
     <script type="text/javascript" src="app.js"></script>
     <title></title>
   </head>
-
   <body ng-controller="mainController as ctrl">
-
     <nav>
       <form ng-submit="ctrl.login(userPass)" class="form">
         <div id="log">
@@ -31,31 +29,9 @@
       <button ng-if="ctrl.user" ng-click="ctrl.logout()">log out</button>
       <button type="button" onclick="show('new')">new game</button>
       <button type="button" onclick="showEdit('edit')">edit game</button>
-
     </nav>
-
-
-
     <div class="container">
       <main>
-          <!-- <button type="button" onclick="show('new')">new game</button> -->
-          <!-- <form ng-submit="ctrl.createGames()" class="form">
-            <div id="new">
-              <input type="text" ng-model="ctrl.formdata.name" placeholder="name"/>
-              <input type="text" ng-model="ctrl.formdata.platforms" placeholder="platforms"/>
-              <input type="text" ng-model="ctrl.formdata.image" placeholder="image"/>
-              <input type="hidden" ng-model="ctrl.formdata.description" placeholder="description"/>
-              <input type="text" ng-model="ctrl.formdata.genre" placeholder="genre"/>
-              <input type="text" ng-model="ctrl.formdata.rating" placeholder="rating"/>
-              <input type="text" ng-model="ctrl.formdata.developers" placeholder="developers"/>
-              <input type="text" ng-model="ctrl.formdata.publisher" placeholder="publisher"/><input type="hidden" ng-model="ctrl.formdata.review" placeholder="review"/>
-              <input type="text" ng-model="ctrl.formdata.videos" placeholder="videos"/>
-              <input type="text" ng-model="ctrl.formdata.release_date" placeholder="release_date"/>
-              <input type="submit"/>
-            </div>
-          </form> -->
-
-
         <div>
           <button ng-click="ctrl.showGames(user.id)">My Games</button>
           <div id="game-info" ng-repeat="game in ctrl.games">
@@ -66,7 +42,6 @@
             <button ng-click="ctrl.showGame(game.id)">Game Info</button>
             <button ng-click="ctrl.deleteGamesFromDB(game.id)">Delete Game From Library</button>
             <button type="button" onclick="showEdit('edit')" ng-if="ctrl.game">edit game</button>
-              <!-- <div id="edit"> -->
                 <form ng-submit="ctrl.editGame(game.id)">
                 <div id="edit">
                   <input type="text" ng-model="ctrl.editformdata.name" placeholder="name"/>
@@ -82,23 +57,19 @@
                   <input type="submit"/>
                 </div>
               </form>
-            <!-- </div> -->
           </div>
-
       </main>
-
         <aside>
-        <div class="game-container" ng-if='ctrl.game'>
-          <p ng-if="ctrl.game">{{ ctrl.game.name }}</p>
-          <p ng-if="ctrl.game">Platforms: {{ ctrl.game.platforms }}</p>
-          <p ng-if="ctrl.game">Genre: {{ ctrl.game.genre }}</p>
-          <p ng-if="ctrl.game">Description: {{ ctrl.game.description }}</p>
-          <p ng-if="ctrl.game">Rating: {{ ctrl.game.rating }}</p>
-          <p ng-if="ctrl.game">Developers: {{ ctrl.game.developers }}</p>
+        <div class="game-container" ng-if="ctrl.game.length != 0">
+          <p>{{ ctrl.game.name }}</p>
+          <p>Platforms: {{ ctrl.game.platforms }}</p>
+          <p>Genre: {{ ctrl.game.genre }}</p>
+          <p >Description: {{ ctrl.game.description }}</p>
+          <p>Rating: {{ ctrl.game.rating }}</p>
+          <p>Developers: {{ ctrl.game.developers }}</p>
           <p ng-if="ctrl.game">Publisher: {{ ctrl.game.publisher }}</p>
-          <!-- <p ng-if="ctrl.game">Release Date: {{ ctrl.game.release_date }}</p> -->
         </div>
-        <!-- <button type="button" onclick="show('new')">new game</button> -->
+        <button type="button" onclick="show('new')">new game</button>
         <form ng-submit="ctrl.createGames()" class="form">
           <div id="new">
             <input type="text" ng-model="ctrl.formdata.name" placeholder="name"/>
@@ -116,10 +87,8 @@
         </form>
         <aside>
       </div>
-
     </div>
   </body>
-
   <footer>
    <p><cite>© 2017 Development by Blaine Boudreau</cite></p>
   </footer>
