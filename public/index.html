@@ -26,10 +26,11 @@
           <button type="submit">submit</button>
         </div>
       </form>
-        <button type="button" onclick="showSin('sin')">sign up</button>
-        <button type="button" onclick="showLog('log')">log in</button>
+        <button ng-click="ctrl.showSin()">sign up</button>
+        <button ng-click="ctrl.showLog()">log in</button>
         <button id="logout-button" ng-if="ctrl.user" ng-click="ctrl.logout()">log out</button>
-        <button type="button" onclick="show('new')">new game</button>
+        <button ng-click="ctrl.showNew()">new game</button>
+        <!-- <button type="button" onclick="show('new')">new game</button> -->
     </nav>
     <header>
       <img id="health-bar" src="http://orig05.deviantart.net/39d6/f/2014/186/b/9/sword_art_online_hp_bar_by_darkblackswords-d5nvlz9.png">
@@ -50,7 +51,6 @@
               <button class="index-buttons" ng-click="ctrl.showGame(game.id)">Game Info</button>
               <button class="index-buttons" ng-click="ctrl.deleteGamesFromDB(game.id)">Delete Game</button>
               <button class="index-buttons"  ng-if="ctrl.game" ng-click="ctrl.showEdit(game.id)">edit game</button>
-              <!-- <button class="index-buttons" type="button" onclick="showEdit('edit')" ng-if="ctrl.game">edit game</button> -->
           </div>
       </main>
       <aside>
@@ -114,7 +114,12 @@
 
 
 <!-- -graveyard ---------------------------------------->
-          <!-- <button id="showgame-button" ng-click="ctrl.showGames(user.id)">Display My Games</button> -->
+
+<!-- <button type="button" onclick="showSin('sin')">sign up</button> -->
+
+<!-- <button type="button" onclick="showLog('log')">log in</button> -->
+
+<!-- <button id="showgame-button" ng-click="ctrl.showGames(user.id)">Display My Games</button> -->
 
 <!-- ng-if="ctrl.Object.keys(user).length != 0"> -->
  <!-- Object.keys(myObject).length

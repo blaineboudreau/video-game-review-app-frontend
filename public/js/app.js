@@ -19,6 +19,13 @@ app.controller('mainController', ['$http', function($http) {
 
 
 //----------------------login functionality------------------------------------------------------------------------------------
+  this.hideLog = function() {
+    document.getElementById("log").style.display="none";
+  }
+
+  this.showLog = function() {
+    document.getElementById("log").style.display="block";
+  }
 
   this.login = function(userPass) {
     console.log(userPass);
@@ -37,10 +44,18 @@ app.controller('mainController', ['$http', function($http) {
 
     console.log(response);
     this.showGames(this.user.id);
+    this.hideLog();
   }.bind(this));// end login request
 };// end login function
 
   //------------------------signup functionality-------------------------------------------------------------------------------
+  this.hideSin = function() {
+    document.getElementById("sin").style.display="none";
+  }
+
+  this.showSin = function() {
+    document.getElementById("sin").style.display="block";
+  }
 
   this.signup = function(userPass) {
 
@@ -53,6 +68,7 @@ app.controller('mainController', ['$http', function($http) {
     }}
   }).then(function(response) {
     console.log(response);
+    this.hideLog();
   }.bind(this));
   };// end signup function
 
@@ -112,6 +128,9 @@ this.getUsers = function() {
   };// end showGame function
 
 //------------------------create game--------------------------------------------------------------------------------------------
+  this.showNew = function() {
+    document.getElementById("new").style.display="block";
+  }
 
   this.createGames = function() {
     // var self = this;
@@ -156,23 +175,6 @@ this.getUsers = function() {
 
 
 //------------------------edit game--------------------------------------------------------------------------------
-
-  // this.editGame = function(gameId) {
-  //   var self = this;
-  //   console.log('editGames function..');
-  //   console.log('Formdata:', self.editformdata);
-  //   console.log(gameId);
-  //
-  //   $http({
-  //     url: this.url + '/users/' + self.user.id + '/games/' + gameId,
-  //     method: 'PUT',
-  //     data: self.editformdata
-  //   }).then(function(result) {
-  //     console.log('data from server: ', result);
-  //     self.editformdata = {};
-  //     self.editGame.result;
-  //   })
-  // };// end editGames function
 
   this.showEdit = function(gameId) {
 
