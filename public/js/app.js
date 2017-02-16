@@ -74,7 +74,7 @@ app.controller('mainController', ['$http', function($http) {
     console.log(response);
     this.hideSin();
     this.showNew();
-    this.login()
+    // this.login()
     this.showOut();
   }.bind(this));
   };// end signup function

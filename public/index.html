@@ -61,10 +61,12 @@
           <p>{{ ctrl.game.name }}</p>
           <p>Platforms: {{ ctrl.game.platforms }}</p>
           <p>Genre: {{ ctrl.game.genre }}</p>
-          <p >Description: {{ ctrl.game.description }}</p>
+          <p>Description: {{ ctrl.game.description }}</p>
           <p>Rating: {{ ctrl.game.rating }}</p>
           <p>Developers: {{ ctrl.game.developers }}</p>
           <p>Publisher: {{ ctrl.game.publisher }}</p>
+          <p>Review: {{ ctrl.game.review }}</p>
+          <p>Release Date: {{ ctrl.game.release_date }}</p>
         </div>
         <div id="edit-div">
         <form ng-submit="ctrl.editGame(game.id)" class="form">
@@ -90,11 +92,12 @@
           <input type="text" ng-model="ctrl.formdata.name" placeholder="name"/>
           <input type="text" ng-model="ctrl.formdata.platforms" placeholder="platforms"/>
           <input type="text" ng-model="ctrl.formdata.image" placeholder="image"/>
-          <input type="hidden" ng-model="ctrl.formdata.description" placeholder="description"/>
+          <input type="text" ng-model="ctrl.formdata.description" placeholder="description"/>
           <input type="text" ng-model="ctrl.formdata.genre" placeholder="genre"/>
           <input type="text" ng-model="ctrl.formdata.rating" placeholder="rating"/>
           <input type="text" ng-model="ctrl.formdata.developers" placeholder="developers"/>
-          <input type="text" ng-model="ctrl.formdata.publisher" placeholder="publisher"/><input type="text" ng-model="ctrl.formdata.review" placeholder="review"/>
+          <input type="text" ng-model="ctrl.formdata.publisher" placeholder="publisher"/>
+          <input type="text" ng-model="ctrl.formdata.review" placeholder="review"/>
           <input type="text" ng-model="ctrl.formdata.videos" placeholder="videos"/>
           <input type="text" ng-model="ctrl.formdata.release_date" placeholder="release_date"/>
           <input type="submit"/>
