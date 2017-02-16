@@ -35,6 +35,7 @@ app.controller('mainController', ['$http', function($http) {
     localStorage.setItem('token', JSON.stringify(response.data.token))
 
     console.log(response);
+    this.showGames(this.user.id);
   }.bind(this));// end login request
 };// end login function
 
