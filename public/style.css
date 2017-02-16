@@ -65,7 +65,7 @@ img {
 .form {
   height: 210px; width: 100px;
   border-radius: 10px;
-  flex: auto;
+  /*flex: auto;*/
 }
 
 .form-login {
@@ -89,10 +89,11 @@ img {
 }
 
 #game-info {
+  /*display: table-cell;*/
   display: block;
   margin-right: 100%;
   width: 400px;
-  height: 400px;
+  /*height: 400px;*/
 }
 
 #edit {
@@ -100,7 +101,7 @@ img {
 }
 
 #index-games {
-  display: list-item;
+  /*display: list-item;*/
 }
 
 #logout-button {
@@ -130,4 +131,8 @@ img {
   width: 300px;
   position: absolute;
   /*right: 250px;*/
+}
+
+#edit-div {
+  
 }

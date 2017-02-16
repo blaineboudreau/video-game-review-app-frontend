@@ -43,29 +43,14 @@
           </form>
         </div>
         <div id="index-games">
-          <button id="showgame-button" ng-click="ctrl.showGames(user.id)">Display My Games</button>
             <div id="game-info" ng-repeat="game in ctrl.games">
               <div id="image">
                 <img src= "{{ game.image }}">
               </div>
               <button class="index-buttons" ng-click="ctrl.showGame(game.id)">Game Info</button>
               <button class="index-buttons" ng-click="ctrl.deleteGamesFromDB(game.id)">Delete Game</button>
-              <button class="index-buttons" type="button" onclick="showEdit('edit')" ng-if="ctrl.game">edit game</button>
-              <form ng-submit="ctrl.editGame(game.id)" class="form">
-                <div id="edit">
-                  <input type="text" ng-model="ctrl.editformdata.name" placeholder="name"/>
-                  <input type="text" ng-model="ctrl.editformdata.platforms" placeholder="platforms"/>
-                  <input type="text" ng-model="ctrl.editformdata.image" placeholder="image"/>
-                  <input type="text" ng-model="ctrl.editformdata.description" placeholder="description"/>
-                  <input type="text" ng-model="ctrl.editformdata.genre" placeholder="genre"/>
-                  <input type="text" ng-model="ctrl.editformdata.rating" placeholder="rating"/>
-                  <input type="text" ng-model="ctrl.editformdata.developers" placeholder="developers"/>
-                  <input type="text" ng-model="ctrl.editformdata.publisher" placeholder="publisher"/><input type="text" ng-model="ctrl.editformdata.review" placeholder="review"/>
-                  <input type="text" ng-model="ctrl.editformdata.videos" placeholder="videos"/>
-                  <input type="text" ng-model="ctrl.editformdata.release_date" placeholder="release_date"/>
-                  <input type="submit"/>
-                </div>
-              </form>
+              <button class="index-buttons"  ng-if="ctrl.game" ng-click="ctrl.showEdit(game.id)">edit game</button>
+              <!-- <button class="index-buttons" type="button" onclick="showEdit('edit')" ng-if="ctrl.game">edit game</button> -->
           </div>
       </main>
       <aside>
@@ -94,6 +79,24 @@
             <input type="submit"/>
           </div>
         </form>
+        <div id="edit-div">
+        <form ng-submit="ctrl.editGame(game.id)" class="form">
+          <div id="edit">
+            <h3>Edit Game</h3>
+            <input type="text" ng-model="ctrl.editformdata.name" placeholder="name"/>
+            <input type="text" ng-model="ctrl.editformdata.platforms" placeholder="platforms"/>
+            <input type="text" ng-model="ctrl.editformdata.image" placeholder="image"/>
+            <input type="text" ng-model="ctrl.editformdata.description" placeholder="description"/>
+            <input type="text" ng-model="ctrl.editformdata.genre" placeholder="genre"/>
+            <input type="text" ng-model="ctrl.editformdata.rating" placeholder="rating"/>
+            <input type="text" ng-model="ctrl.editformdata.developers" placeholder="developers"/>
+            <input type="text" ng-model="ctrl.editformdata.publisher" placeholder="publisher"/><input type="text" ng-model="ctrl.editformdata.review" placeholder="review"/>
+            <input type="text" ng-model="ctrl.editformdata.videos" placeholder="videos"/>
+            <input type="text" ng-model="ctrl.editformdata.release_date" placeholder="release_date"/>
+            <input type="submit"/>
+          </div>
+        </form>
+      </div>
       <aside>
      </div>
     </div>
@@ -111,6 +114,8 @@
 
 
 <!-- -graveyard ---------------------------------------->
+          <!-- <button id="showgame-button" ng-click="ctrl.showGames(user.id)">Display My Games</button> -->
+
 <!-- ng-if="ctrl.Object.keys(user).length != 0"> -->
  <!-- Object.keys(myObject).length
  Object.keys(a).length; -->

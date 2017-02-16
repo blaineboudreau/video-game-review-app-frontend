@@ -10,6 +10,7 @@ app.controller('mainController', ['$http', function($http) {
   this.game = [];
   this.formdata = {};
   this.editformdata = {};
+  this.gameone = [];
 
 //-------------------------toggle functionality btw local/heroku---------------
 
@@ -156,22 +157,54 @@ this.getUsers = function() {
 
 //------------------------edit game--------------------------------------------------------------------------------
 
-  this.editGame = function(gameId) {
-    var self = this;
-    console.log('editGames function..');
-    console.log('Formdata:', self.editformdata);
-    console.log(gameId);
+  // this.editGame = function(gameId) {
+  //   var self = this;
+  //   console.log('editGames function..');
+  //   console.log('Formdata:', self.editformdata);
+  //   console.log(gameId);
+  //
+  //   $http({
+  //     url: this.url + '/users/' + self.user.id + '/games/' + gameId,
+  //     method: 'PUT',
+  //     data: self.editformdata
+  //   }).then(function(result) {
+  //     console.log('data from server: ', result);
+  //     self.editformdata = {};
+  //     self.editGame.result;
+  //   })
+  // };// end editGames function
 
+  this.showEdit = function(gameId) {
+
+    var self = this;
     $http({
       url: this.url + '/users/' + self.user.id + '/games/' + gameId,
-      method: 'PUT',
-      data: self.editformdata
-    }).then(function(result) {
-      console.log('data from server: ', result);
-      self.editformdata = {};
-      self.editGame.result;
-    })
-  };// end editGames function
+      method: 'GET',
+    }).then(function(response) {
+      console.log("single game from server to edit: ", response);
+      self.game = response.data;
+    }).then(function(response){
+      document.getElementById("edit").style.display="block";
+    });
+
+    this.editGame = function(gameId) {
+      var self = this;
+      console.log('editGames function..');
+      console.log('Formdata:', self.game);
+      console.log(gameId);
+
+      $http({
+        url: this.url + '/users/' + self.user.id + '/games/' + self.game.id,
+        method: 'PUT',
+        data: self.editformdata
+      }).then(function(result) {
+        console.log('data from server: ', result);
+        self.editformdata = {};
+        self.editGame.result;
+      })
+    };// end editGames function
+  };// end showEdit function
+
 
 //-------------------query games through API--------------------
 
