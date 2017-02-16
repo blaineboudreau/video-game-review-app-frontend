@@ -124,12 +124,23 @@ this.getUsers = function() {
     }).then(function(response) {
       console.log("single game from server: ", response);
       self.game = response.data;
+      scroll();
     })
   };// end showGame function
 
 //------------------------create game--------------------------------------------------------------------------------------------
+
+  scrollToNew = function() {
+    window.scrollTo(200, 400);
+  };
+
   this.showNew = function() {
     document.getElementById("new").style.display="block";
+    scrollToNew();
+  }
+
+  this.hideNew = function() {
+    document.getElementById("new").style.display="none";
   }
 
   this.createGames = function() {
@@ -145,6 +156,7 @@ this.getUsers = function() {
       console.log(this.formdata);
       console.log('data from server:', result);
       this.formdata = {};
+      this.hideNew();
     }.bind(this));
   }// end createGames function
 
@@ -180,6 +192,10 @@ this.getUsers = function() {
     window.scrollTo(200, 200);
   };
 
+  this.hideEdit = function() {
+    document.getElementById("edit").style.display="none";
+  }
+
 
   this.showEdit = function(gameId) {
 
@@ -209,6 +225,8 @@ this.getUsers = function() {
         console.log('data from server: ', result);
         self.editformdata = {};
         self.editGame.result;
+        self.hideEdit();
+        self.showGame(self.game.id);
       })
     };// end editGames function
   };// end showEdit function

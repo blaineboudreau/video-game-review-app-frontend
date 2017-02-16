@@ -51,9 +51,11 @@ button {
 }
 
 aside {
-  flex: 0 0 12em;
+  flex: 0 0 17em;
   background-color: #e0e0e0;
   width: auto;
+  font-family: serif;
+  font-size: large;
 }
 
 img {
@@ -65,6 +67,8 @@ img {
 .form {
   height: 210px; width: 100px;
   border-radius: 10px;
+  padding-top: 60px;
+  padding-bottom: 70px;
   /*flex: auto;*/
 }
 
@@ -79,8 +83,8 @@ img {
   flex: 1;
 }
 
-.index-buttons {
-  display: block;
+.link {
+  width: 50%;
 }
 
 .game-container {
@@ -89,11 +93,10 @@ img {
 }
 
 #game-info {
-  /*display: table-cell;*/
-  display: block;
-  margin-right: 100%;
   width: 400px;
-  /*height: 400px;*/
+  margin: 2px 2px 2px 2px;
+  float: left;
+  padding: 20px;
 }
 
 #edit {
@@ -123,7 +126,13 @@ img {
 
 #search-form {
   margin-right: 100%;
-  padding-top: 70px;
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+
+#new-button {
+  margin-right: 100%;
+  padding-bottom: 50px;
 }
 
 #buster-sword {
@@ -134,5 +143,5 @@ img {
 }
 
 #edit-div {
-  
+
 }
