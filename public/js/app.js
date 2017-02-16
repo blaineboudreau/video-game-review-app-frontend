@@ -2,7 +2,7 @@ var app = angular.module('call_of_review_app', []);
 
 app.controller('mainController', ['$http', function($http) {
 
-  this.url = "http://localhost:3000"
+  // this.url = "http://localhost:3000"
   this.userPass = {};
   this.users = {};
   this.user = {};
@@ -14,8 +14,9 @@ app.controller('mainController', ['$http', function($http) {
 
 //-------------------------toggle functionality btw local/heroku---------------
 
-  // var localEnv = true; //change to true if using localhost, change to false if on heroku
-  // if (localEnv) { var url = 'http://localhost:3000'} else { var url = 'https://call-of-review-frontend.herokuapp.com/' }
+  var localEnv = false; // true/localhost, false/heroku
+
+  if (localEnv) { var url = 'http://localhost:3000'} else { var url = 'https://call-of-review-frontend.herokuapp.com/' }
 
 
 //----------------------login functionality------------------------------------------------------------------------------------
@@ -32,7 +33,7 @@ app.controller('mainController', ['$http', function($http) {
 
   $http({
     method: 'POST',
-    url: this.url + '/users/login',
+    url: url + '/users/login',
     data: { user: {
       username: userPass.username,
       password: userPass.password
@@ -45,6 +46,7 @@ app.controller('mainController', ['$http', function($http) {
     console.log(response);
     this.showGames(this.user.id);
     this.hideLog();
+    this.showOut();
   }.bind(this));// end login request
 };// end login function
 
@@ -61,18 +63,24 @@ app.controller('mainController', ['$http', function($http) {
 
   $http({
     method: 'POST',
-    url: this.url + '/users',
+    url: url + '/users',
     data: { user: {
       username: userPass.username,
       password: userPass.password
     }}
   }).then(function(response) {
     console.log(response);
-    this.hideLog();
+    this.hideSin();
+    this.showNew();
+    this.login()
+    this.showOut();
   }.bind(this));
   };// end signup function
 
 //--------------------logout functionality---------------------------------------------------------------------------------------
+  this.showOut = function() {
+    document.getElementById("out").style.display="block";
+  }
 
   this.logout = function() {
     localStorage.clear('token');
@@ -84,7 +92,7 @@ app.controller('mainController', ['$http', function($http) {
 this.getUsers = function() {
   console.log('get users function');
   $http({
-    url: this.url + '/users',
+    url: url + '/users',
     method: 'GET',
     headers: {
       Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
@@ -104,7 +112,7 @@ this.getUsers = function() {
   this.showGames = function(userId) {
     var self = this;
     $http({
-      url: this.url + '/users/' + self.user.id + '/games',
+      url: url + '/users/' + self.user.id + '/games',
       method: 'GET',
     }).then(function(response) {
       console.log(response);
@@ -119,7 +127,7 @@ this.getUsers = function() {
   this.showGame = function(gameId) {
     var self = this;
     $http({
-      url: this.url + '/users/' + self.user.id + '/games/' + gameId,
+      url: url + '/users/' + self.user.id + '/games/' + gameId,
       method: 'GET',
     }).then(function(response) {
       console.log("single game from server: ", response);
@@ -150,13 +158,15 @@ this.getUsers = function() {
 
     $http({
       method: 'POST',
-      url: this.url + '/users/' + this.user.id + '/games/',
+      url: url + '/users/' + this.user.id + '/games/',
       data: this.formdata,
     }).then(function(result) {
       console.log(this.formdata);
       console.log('data from server:', result);
       this.formdata = {};
+      this.games.unshift(result.data);
       this.hideNew();
+
     }.bind(this));
   }// end createGames function
 
@@ -177,7 +187,7 @@ this.getUsers = function() {
     var self = this;
     $http({
       method: 'DELETE',
-      url: this.url + '/users/' + self.user.id + '/games/' + gameId,
+      url: url + '/users/' + self.user.id + '/games/' + gameId,
     }).then(function(response) {
       console.log(response);
       self.deleteGames(response.data);
@@ -201,7 +211,7 @@ this.getUsers = function() {
 
     var self = this;
     $http({
-      url: this.url + '/users/' + self.user.id + '/games/' + gameId,
+      url: url + '/users/' + self.user.id + '/games/' + gameId,
       method: 'GET',
     }).then(function(response) {
       console.log("single game from server to edit: ", response);
@@ -218,7 +228,7 @@ this.getUsers = function() {
       console.log(gameId);
 
       $http({
-        url: this.url + '/users/' + self.user.id + '/games/' + self.game.id,
+        url: url + '/users/' + self.user.id + '/games/' + self.game.id,
         method: 'PUT',
         data: self.editformdata
       }).then(function(result) {

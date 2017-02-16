@@ -96,7 +96,7 @@ img {
   width: 400px;
   margin: 2px 2px 2px 2px;
   float: left;
-  padding: 20px;
+  padding: 10px;
 }
 
 #edit {
@@ -107,7 +107,7 @@ img {
   /*display: list-item;*/
 }
 
-#logout-button {
+#out {
   display: none;
 }
 
