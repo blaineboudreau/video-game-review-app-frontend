@@ -176,6 +176,11 @@ this.getUsers = function() {
 
 //------------------------edit game--------------------------------------------------------------------------------
 
+  scroll = function() {
+    window.scrollTo(200, 200);
+  };
+
+
   this.showEdit = function(gameId) {
 
     var self = this;
@@ -187,6 +192,7 @@ this.getUsers = function() {
       self.game = response.data;
     }).then(function(response){
       document.getElementById("edit").style.display="block";
+      scroll();
     });
 
     this.editGame = function(gameId) {
