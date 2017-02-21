@@ -16,9 +16,11 @@ app.controller('mainController', ['$http', function($http) {
 
   var localEnv = false; // true/localhost, false/heroku
 
-  // if (localEnv) { var url = 'http://localhost:3000'} else { var url = 'https://call-of-review-frontend.herokuapp.com' }
-
-  if (localEnv) { var url = 'http://localhost:3000'} else { var url = 'https://call-of-review-backend.herokuapp.com' }
+    if (localEnv) {
+      var url = 'http://localhost:3000'
+    } else {
+      var url = 'https://call-of-review-backend.herokuapp.com'
+    }// end toggle
 
 
 //----------------------login functionality------------------------------------------------------------------------------------
