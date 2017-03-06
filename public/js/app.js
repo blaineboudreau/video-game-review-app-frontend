@@ -270,4 +270,15 @@ this.getUsers = function() {
     })
   };//end search function
 
+  this.showSeachGameById = function(gameId) {
+    console.log(gameId);
+
+    $http({
+      url: 'http://www.giantbomb.com/api/game/' + gameId + '/?api_key=52304d7c9dda9771814ff56149b186d55f0564ed',
+      method: 'GET',
+    }).then(function(response) {
+      console.log('data from server:', response);
+    })
+  };//end showSeachGameById function
+
 }]);// end controller

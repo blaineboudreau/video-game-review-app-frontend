@@ -70,26 +70,46 @@
           <p>Release Date: {{ ctrl.game.release_date }}</p>
         </div>
         <div id="searchinfo">
-          <img src= "{{ ctrl.searchgames.results[0].image.thumb_url }}">
+          <img src= "{{ ctrl.searchgames.results[0].image.thumb_url }}" ng-click="ctrl.showSearchGameById(ctrl.searchgames.results[0].id)">
           <p> {{ ctrl.searchgames.results[0].name }}</p>
-          <img src= "{{ ctrl.searchgames.results[1].image.thumb_url }}">
+          <p> {{ ctrl.searchgames.results[0].deck }}</p>
+          <a href="{{ ctrl.searchgames.results[0].site_detail_url }}">Giantbomb info: {{ ctrl.searchgames.results[0].name }} </a>
+          <img src= "{{ ctrl.searchgames.results[1].image.thumb_url }}" ng-click="ctrl.showSearchGameById(game.id)">
           <p> {{ ctrl.searchgames.results[1].name }}</p>
-          <img src= "{{ ctrl.searchgames.results[2].image.thumb_url }}">
+          <p> {{ ctrl.searchgames.results[1].deck }}</p>
+          <a href="{{ ctrl.searchgames.results[1].site_detail_url }}">Giantbomb info: {{ ctrl.searchgames.results[1].name }} </a>
+          <img src= "{{ ctrl.searchgames.results[2].image.thumb_url }}" ng-click="ctrl.showSearchGameById(game.id)">
           <p> {{ ctrl.searchgames.results[2].name }}</p>
-          <img src= "{{ ctrl.searchgames.results[3].image.thumb_url }}">
+          <p> {{ ctrl.searchgames.results[2].deck }}</p>
+          <a href="{{ ctrl.searchgames.results[2].site_detail_url }}">Giantbomb info: {{ ctrl.searchgames.results[2].name }} </a>
+          <img src= "{{ ctrl.searchgames.results[3].image.thumb_url }}" ng-click="ctrl.showSearchGameById(game.id)">
           <p> {{ ctrl.searchgames.results[3].name }}</p>
-          <img src= "{{ ctrl.searchgames.results[4].image.thumb_url }}">
+          <p> {{ ctrl.searchgames.results[3].deck }}</p>
+          <a href="{{ ctrl.searchgames.results[3].site_detail_url }}">Giantbomb info: {{ ctrl.searchgames.results[3].name }} </a>
+          <img src= "{{ ctrl.searchgames.results[4].image.thumb_url }}" ng-click="ctrl.showSearchGameById(game.id)">
           <p> {{ ctrl.searchgames.results[4].name }}</p>
-          <img src= "{{ ctrl.searchgames.results[5].image.thumb_url }}">
+          <p> {{ ctrl.searchgames.results[4].deck }}</p>
+          <a href="{{ ctrl.searchgames.results[4].site_detail_url }}">Giantbomb info: {{ ctrl.searchgames.results[4].name }} </a>
+          <img src= "{{ ctrl.searchgames.results[5].image.thumb_url }}" ng-click="ctrl.showSearchGameById(game.id)">
           <p> {{ ctrl.searchgames.results[5].name }}</p>
-          <img src= "{{ ctrl.searchgames.results[6].image.thumb_url }}">
+          <p> {{ ctrl.searchgames.results[5].deck }}</p>
+          <a href="{{ ctrl.searchgames.results[5].site_detail_url }}">Giantbomb info: {{ ctrl.searchgames.results[5].name }} </a>
+          <img src= "{{ ctrl.searchgames.results[6].image.thumb_url }}" ng-click="ctrl.showSearchGameById(game.id)">
           <p> {{ ctrl.searchgames.results[6].name }}</p>
-          <img src= "{{ ctrl.searchgames.results[7].image.thumb_url }}">
+          <p> {{ ctrl.searchgames.results[6].deck }}</p>
+          <a href="{{ ctrl.searchgames.results[6].site_detail_url }}">Giantbomb info: {{ ctrl.searchgames.results[6].name }} </a>
+          <img src= "{{ ctrl.searchgames.results[7].image.thumb_url }}" ng-click="ctrl.showSearchGameById(game.id)">
           <p> {{ ctrl.searchgames.results[7].name }}</p>
-          <img src= "{{ ctrl.searchgames.results[8].image.thumb_url }}">
+          <p> {{ ctrl.searchgames.results[7].deck }}</p>
+          <a href="{{ ctrl.searchgames.results[7].site_detail_url }}">Giantbomb info: {{ ctrl.searchgames.results[7].name }} </a>
+          <img src= "{{ ctrl.searchgames.results[8].image.thumb_url }}" ng-click="ctrl.showSearchGameById(game.id)">
           <p> {{ ctrl.searchgames.results[8].name }}</p>
-          <img src= "{{ ctrl.searchgames.results[9].image.thumb_url }}">
+          <p> {{ ctrl.searchgames.results[8].deck }}</p>
+          <a href="{{ ctrl.searchgames.results[8].site_detail_url }}">Giantbomb info: {{ ctrl.searchgames.results[8].name }} </a>
+          <img src= "{{ ctrl.searchgames.results[9].image.thumb_url }}" ng-click="ctrl.showSearchGameById(game.id)">
           <p> {{ ctrl.searchgames.results[9].name }}</p>
+          <p> {{ ctrl.searchgames.results[9].deck }}</p>
+          <a href="{{ ctrl.searchgames.results[9].site_detail_url }}">Giantbomb info: {{ ctrl.searchgames.results[9].name }} </a>
         </div>
         <div id="edit-div">
         <form ng-submit="ctrl.editGame(game.id)" class="form">
