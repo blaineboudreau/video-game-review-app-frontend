@@ -69,15 +69,27 @@
           <p>Review: {{ ctrl.game.review }}</p>
           <p>Release Date: {{ ctrl.game.release_date }}</p>
         </div>
-        <div class="game-searchcontainer" ng-if="ctrl.formdatas">
-          <p>Anything Test: {{ ctrl.searchgames }}</p>
-          <p>Game Test: {{ ctrl.searchgames.game }}</p>
-          <p>Result Test: {{ ctrl.searchgames.results }}</p>
-          <p>Name Test: {{ ctrl.searchgames.name }}</p>
-          <p>Aliases Test {{ ctrl.searchgames.aliases }}</p>
-          <p>Result Test: {{ ctrl.searchgames.results[0] }}</p>
-          <p>Result Test: {{ ctrl.searchgames.results.deck }}</p>
-          <p>Result Test: {{ ctrl.searchgames.limit }}</p>
+        <div id="searchinfo">
+          <img src= "{{ ctrl.searchgames.results[0].image.thumb_url }}">
+          <p> {{ ctrl.searchgames.results[0].name }}</p>
+          <img src= "{{ ctrl.searchgames.results[1].image.thumb_url }}">
+          <p> {{ ctrl.searchgames.results[1].name }}</p>
+          <img src= "{{ ctrl.searchgames.results[2].image.thumb_url }}">
+          <p> {{ ctrl.searchgames.results[2].name }}</p>
+          <img src= "{{ ctrl.searchgames.results[3].image.thumb_url }}">
+          <p> {{ ctrl.searchgames.results[3].name }}</p>
+          <img src= "{{ ctrl.searchgames.results[4].image.thumb_url }}">
+          <p> {{ ctrl.searchgames.results[4].name }}</p>
+          <img src= "{{ ctrl.searchgames.results[5].image.thumb_url }}">
+          <p> {{ ctrl.searchgames.results[5].name }}</p>
+          <img src= "{{ ctrl.searchgames.results[6].image.thumb_url }}">
+          <p> {{ ctrl.searchgames.results[6].name }}</p>
+          <img src= "{{ ctrl.searchgames.results[7].image.thumb_url }}">
+          <p> {{ ctrl.searchgames.results[7].name }}</p>
+          <img src= "{{ ctrl.searchgames.results[8].image.thumb_url }}">
+          <p> {{ ctrl.searchgames.results[8].name }}</p>
+          <img src= "{{ ctrl.searchgames.results[9].image.thumb_url }}">
+          <p> {{ ctrl.searchgames.results[9].name }}</p>
         </div>
         <div id="edit-div">
         <form ng-submit="ctrl.editGame(game.id)" class="form">
@@ -131,6 +143,69 @@
 
 
 <!-- -graveyard ---------------------------------------->
+
+<!-- <img src= "{{ ctrl.searchgames.results[0].image.thumb_url }}"> -->
+<!-- <p>name: {{ ctrl.searchgames.results[0].name }}</p>
+<p>aliases: {{ ctrl.searchgames.results[0].aliases }}</p>
+<p>original_release_date: {{ ctrl.searchgames.results[0].original_release_date }}</p>
+<p>deck: {{ ctrl.searchgames.results[0].deck }}</p> -->
+<!-- <p>description: {{ ctrl.searchgames.results[0].description }}</p> -->
+<!-- <img src= "{{ ctrl.searchgames.results[1].image.thumb_url }}"> -->
+<!-- <p>name: {{ ctrl.searchgames.results[1].name }}</p>
+<p>aliases: {{ ctrl.searchgames.results[1].aliases }}</p>
+<p>original_release_date: {{ ctrl.searchgames.results[1].original_release_date }}</p>
+<p>deck: {{ ctrl.searchgames.results[1].deck }}</p> -->
+<!-- <p>description: {{ ctrl.searchgames.results[0].description }}</p> -->
+<!-- <img src= "{{ ctrl.searchgames.results[2].image.thumb_url }}"> -->
+<!-- <p>name: {{ ctrl.searchgames.results[2].name }}</p>
+<p>aliases: {{ ctrl.searchgames.results[2].aliases }}</p>
+<p>original_release_date: {{ ctrl.searchgames.results[2].original_release_date }}</p>
+<p>deck: {{ ctrl.searchgames.results[2].deck }}</p> -->
+<!-- <p>description: {{ ctrl.searchgames.results[0].description }}</p> -->
+<!-- <img src= "{{ ctrl.searchgames.results[3].image.thumb_url }}"> -->
+<!-- <p>name: {{ ctrl.searchgames.results[3].name }}</p>
+<p>aliases: {{ ctrl.searchgames.results[3].aliases }}</p>
+<p>original_release_date: {{ ctrl.searchgames.results[3].original_release_date }}</p>
+<p>deck: {{ ctrl.searchgames.results[3].deck }}</p> -->
+<!-- <p>description: {{ ctrl.searchgames.results[0].description }}</p> -->
+<!-- <img src= "{{ ctrl.searchgames.results[4].image.thumb_url }}"> -->
+<!-- <p>name: {{ ctrl.searchgames.results[4].name }}</p>
+<p>aliases: {{ ctrl.searchgames.results[4].aliases }}</p>
+<p>original_release_date: {{ ctrl.searchgames.results[4].original_release_date }}</p>
+<p>deck: {{ ctrl.searchgames.results[4].deck }}</p> -->
+<!-- <p>description: {{ ctrl.searchgames.results[0].description }}</p> -->
+<!-- <img src= "{{ ctrl.searchgames.results[5].image.thumb_url }}"> -->
+<!-- <p>name: {{ ctrl.searchgames.results[5].name }}</p>
+<p>aliases: {{ ctrl.searchgames.results[5].aliases }}</p>
+<p>original_release_date: {{ ctrl.searchgames.results[5].original_release_date }}</p>
+<p>deck: {{ ctrl.searchgames.results[5].deck }}</p> -->
+<!-- <p>description: {{ ctrl.searchgames.results[0].description }}</p> -->
+<!-- <img src= "{{ ctrl.searchgames.results[6].image.thumb_url }}"> -->
+<!-- <p>name: {{ ctrl.searchgames.results[6].name }}</p>
+<p>aliases: {{ ctrl.searchgames.results[6].aliases }}</p>
+<p>original_release_date: {{ ctrl.searchgames.results[6].original_release_date }}</p>
+<p>deck: {{ ctrl.searchgames.results[6].deck }}</p> -->
+<!-- <p>description: {{ ctrl.searchgames.results[0].description }}</p> -->
+<!-- <img src= "{{ ctrl.searchgames.results[7].image.thumb_url }}"> -->
+<!-- <p>name: {{ ctrl.searchgames.results[7].name }}</p>
+<p>aliases: {{ ctrl.searchgames.results[7].aliases }}</p>
+<p>original_release_date: {{ ctrl.searchgames.results[7].original_release_date }}</p>
+<p>deck: {{ ctrl.searchgames.results[7].deck }}</p> -->
+<!-- <p>description: {{ ctrl.searchgames.results[0].description }}</p> -->
+<!-- <img src= "{{ ctrl.searchgames.results[8].image.thumb_url }}"> -->
+<!-- <p>name: {{ ctrl.searchgames.results[8].name }}</p>
+<p>aliases: {{ ctrl.searchgames.results[8].aliases }}</p>
+<p>original_release_date: {{ ctrl.searchgames.results[8].original_release_date }}</p>
+<p>deck: {{ ctrl.searchgames.results[8].deck }}</p> -->
+<!-- <p>description: {{ ctrl.searchgames.results[0].description }}</p> -->
+<!-- <img src= "{{ ctrl.searchgames.results[9].image.thumb_url }}"> -->
+<!-- <p>name: {{ ctrl.searchgames.results[9].name }}</p>
+<p>aliases: {{ ctrl.searchgames.results[9].aliases }}</p>
+<p>original_release_date: {{ ctrl.searchgames.results[9].original_release_date }}</p>
+<p>deck: {{ ctrl.searchgames.results[9].deck }}</p> -->
+<!-- <p>description: {{ ctrl.searchgames.results[0].description }}</p> -->
+
+
 
 <!-- <button class="index-buttons"  ng-if="ctrl.game" ng-click="ctrl.showEdit(game.id)">edit game</button>
 <button class="index-buttons" ng-click="ctrl.deleteGamesFromDB(game.id)">Delete Game</button> -->

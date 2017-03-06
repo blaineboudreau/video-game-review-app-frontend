@@ -92,8 +92,11 @@ img {
   background-color: #e0e0e0;;
 }
 
-.game-searchcontainer {
-  
+#searchinfo {
+  width: 400px;
+  margin: 2px 2px 2px 2px;
+  float: left;
+  padding: 10px;
 }
 
 #game-info {

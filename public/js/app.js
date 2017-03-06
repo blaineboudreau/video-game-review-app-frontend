@@ -27,11 +27,11 @@ app.controller('mainController', ['$http', function($http) {
 //----------------------login functionality------------------------------------------------------------------------------------
   this.hideLog = function() {
     document.getElementById("log").style.display="none";
-  }
+  };
 
   this.showLog = function() {
     document.getElementById("log").style.display="block";
-  }
+  };
 
   this.login = function(userPass) {
     console.log(userPass);
@@ -58,11 +58,11 @@ app.controller('mainController', ['$http', function($http) {
   //------------------------signup functionality-------------------------------------------------------------------------------
   this.hideSin = function() {
     document.getElementById("sin").style.display="none";
-  }
+  };
 
   this.showSin = function() {
     document.getElementById("sin").style.display="block";
-  }
+  };
 
   this.signup = function(userPass) {
 
@@ -85,7 +85,7 @@ app.controller('mainController', ['$http', function($http) {
 //--------------------logout functionality---------------------------------------------------------------------------------------
   this.showOut = function() {
     document.getElementById("out").style.display="block";
-  }
+  };
 
   this.logout = function() {
     localStorage.clear('token');
@@ -110,7 +110,7 @@ this.getUsers = function() {
       this.users = response.data;
     }
   } .bind(this));
-} //end getUsers function
+}; //end getUsers function
 
 //-------------------------------show games by user index---------------------------------------------------------------------------------
 
@@ -150,11 +150,11 @@ this.getUsers = function() {
   this.showNew = function() {
     document.getElementById("new").style.display="block";
     scrollToNew();
-  }
+  };
 
   this.hideNew = function() {
     document.getElementById("new").style.display="none";
-  }
+  };
 
   this.createGames = function() {
     // var self = this;
@@ -209,7 +209,7 @@ this.getUsers = function() {
 
   this.hideEdit = function() {
     document.getElementById("edit").style.display="none";
-  }
+  };
 
 
   this.showEdit = function(gameId) {
@@ -249,18 +249,24 @@ this.getUsers = function() {
 
 //-------------------query games through API--------------------
 
+  this.showSearch = function() {
+    document.getElementById("searchinfo").style.display="block";
+  }
+
   this.search = function(searchString, callback) {
+    var self = this;
     console.log('search function..');
-    console.log('Formdata:', this.formdatas);
+    console.log('Formdata:', self.formdatas);
 
     $http({
-      url: 'http://www.giantbomb.com/api/search/?api_key=52304d7c9dda9771814ff56149b186d55f0564ed&format=json&query=' + this.formdatas + '&resources=game',
+      url: 'http://www.giantbomb.com/api/search/?api_key=52304d7c9dda9771814ff56149b186d55f0564ed&format=json&query=' + self.formdatas + '&resources=game',
       method: 'GET',
-      data: this.formdatas
+      data: self.formdatas
     }).then(function(response) {
       console.log('data from server:', response);
-      this.searchgames = response.data;
-      console.log(this.searchgames);
+      self.searchgames = response.data;
+      console.log(self.searchgames);
+      self.showSearch();
     })
   };//end search function
 
