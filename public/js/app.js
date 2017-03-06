@@ -2,7 +2,6 @@ var app = angular.module('call_of_review_app', []);
 
 app.controller('mainController', ['$http', function($http) {
 
-  // this.url = "http://localhost:3000"
   this.userPass = {};
   this.users = {};
   this.user = {};
@@ -10,12 +9,13 @@ app.controller('mainController', ['$http', function($http) {
   this.game = [];
   this.formdata = {};
   this.editformdata = {};
-  this.formdatas = {};
   this.gameone = [];
+  this.formdatas = '';
+  this.searchgames = [];
 
 //-------------------------toggle functionality btw local/heroku---------------
 
-  var localEnv = false; // true/localhost, false/heroku
+  var localEnv = true; // true/localhost, false/heroku
 
     if (localEnv) {
       var url = 'http://localhost:3000'
@@ -254,11 +254,13 @@ this.getUsers = function() {
     console.log('Formdata:', this.formdatas);
 
     $http({
-      url: 'http://api.giantbomb.com/game/1/?api_key=52304d7c9dda9771814ff56149b186d55f0564ed&format=jsonp&json_callback=search',
+      url: 'http://www.giantbomb.com/api/search/?api_key=52304d7c9dda9771814ff56149b186d55f0564ed&format=json&query=' + this.formdatas + '&resources=game',
       method: 'GET',
       data: this.formdatas
     }).then(function(response) {
-      console.log(response);
+      console.log('data from server:', response);
+      this.searchgames = response.data;
+      console.log(this.searchgames);
     })
   };//end search function
 

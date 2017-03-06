@@ -39,7 +39,7 @@
       <main>
         <div id="search-form">
           <form ng-submit="ctrl.search(searchString, callback)">
-            <input type="text" placeholder="search game">
+            <input type="text" ng-model="ctrl.formdatas" placeholder="search game">
             <button type="submit">Search Giantbomb</button>
           </form>
         </div>
@@ -68,6 +68,16 @@
           <p>Publisher: {{ ctrl.game.publisher }}</p>
           <p>Review: {{ ctrl.game.review }}</p>
           <p>Release Date: {{ ctrl.game.release_date }}</p>
+        </div>
+        <div class="game-searchcontainer" ng-if="ctrl.formdatas">
+          <p>Anything Test: {{ ctrl.searchgames }}</p>
+          <p>Game Test: {{ ctrl.searchgames.game }}</p>
+          <p>Result Test: {{ ctrl.searchgames.results }}</p>
+          <p>Name Test: {{ ctrl.searchgames.name }}</p>
+          <p>Aliases Test {{ ctrl.searchgames.aliases }}</p>
+          <p>Result Test: {{ ctrl.searchgames.results[0] }}</p>
+          <p>Result Test: {{ ctrl.searchgames.results.deck }}</p>
+          <p>Result Test: {{ ctrl.searchgames.limit }}</p>
         </div>
         <div id="edit-div">
         <form ng-submit="ctrl.editGame(game.id)" class="form">
