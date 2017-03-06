@@ -38,7 +38,7 @@
     <div class="container">
       <main>
         <div id="search-form">
-          <form ng-submit="">
+          <form ng-submit="ctrl.search(searchString, callback)">
             <input type="text" placeholder="search game">
             <button type="submit">Search Giantbomb</button>
           </form>

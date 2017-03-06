@@ -10,6 +10,7 @@ app.controller('mainController', ['$http', function($http) {
   this.game = [];
   this.formdata = {};
   this.editformdata = {};
+  this.formdatas = {};
   this.gameone = [];
 
 //-------------------------toggle functionality btw local/heroku---------------
@@ -108,7 +109,7 @@ this.getUsers = function() {
     } else {
       this.users = response.data;
     }
-  }.bind(this));
+  } .bind(this));
 } //end getUsers function
 
 //-------------------------------show games by user index---------------------------------------------------------------------------------
@@ -181,9 +182,9 @@ this.getUsers = function() {
     for (i = 0; i < this.games.length; i++) {
       if( this.games[i].id === games.id) {
       this.games.splice(i,1);
+      }
     }
-  }
-}// end of deleteGames function
+  }// end of deleteGames function
 
 
   this.deleteGamesFromDB = function(gameId) {
@@ -249,11 +250,16 @@ this.getUsers = function() {
 //-------------------query games through API--------------------
 
   this.search = function(searchString, callback) {
+    console.log('search function..');
+    console.log('Formdata:', this.formdatas);
 
-    $resource({
+    $http({
       url: 'http://api.giantbomb.com/game/1/?api_key=52304d7c9dda9771814ff56149b186d55f0564ed&format=jsonp&json_callback=search',
-      method: 'GET'
-    }).then
-  }
+      method: 'GET',
+      data: this.formdatas
+    }).then(function(response) {
+      console.log(response);
+    })
+  };//end search function
 
 }]);// end controller
