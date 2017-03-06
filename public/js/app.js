@@ -15,7 +15,7 @@ app.controller('mainController', ['$http', function($http) {
 
 //-------------------------toggle functionality btw local/heroku---------------
 
-  var localEnv = true; // true/localhost, false/heroku
+  var localEnv = false; // true/localhost, false/heroku
 
     if (localEnv) {
       var url = 'http://localhost:3000'
