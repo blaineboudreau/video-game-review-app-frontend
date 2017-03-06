@@ -15,7 +15,7 @@ app.controller('mainController', ['$http', function($http) {
 
 //-------------------------toggle functionality btw local/heroku---------------
 
-  var localEnv = false; // true/localhost, false/heroku
+  var localEnv = true; // true/localhost, false/heroku
 
     if (localEnv) {
       var url = 'http://localhost:3000'
@@ -259,7 +259,7 @@ this.getUsers = function() {
     console.log('Formdata:', self.formdatas);
 
     $http({
-      url: 'http://www.giantbomb.com/api/search/?api_key=52304d7c9dda9771814ff56149b186d55f0564ed&format=json&query=' + self.formdatas + '&resources=game',
+      url: 'https://www.giantbomb.com/api/search/?api_key=52304d7c9dda9771814ff56149b186d55f0564ed&format=json&query=' + self.formdatas + '&resources=game',
       method: 'GET',
       data: self.formdatas
     }).then(function(response) {
